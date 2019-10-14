@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 28C16
+D Paged Parallel EEPROM 16Kb (2K x 8), DIP-24/SOIC-24
+K Parallel EEPROM 16Kb
+F http://cva.stanford.edu/classes/cs99s/datasheets/at28c16.pdf
+$ENDCMP
+#
+$CMP 28C256
+D Paged Parallel EEPROM 256Kb (32K x 8), DIP-28/SOIC-28
+K Parallel EEPROM 256Kb
+F http://ww1.microchip.com/downloads/en/DeviceDoc/doc0006.pdf
+$ENDCMP
+#
+#End Doc Library
