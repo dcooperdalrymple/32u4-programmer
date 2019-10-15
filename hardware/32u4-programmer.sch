@@ -1,4 +1,5 @@
 EESchema Schematic File Version 4
+LIBS:32u4-programmer-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -1036,7 +1037,7 @@ Wire Wire Line
 Wire Wire Line
 	5700 6050 5950 6050
 $Comp
-L 32u4_EEPROM:28C256 U?
+L 32u4-programmer-rescue:28C256-32u4_EEPROM U?
 U 1 1 5E0D6DFC
 P 8850 4450
 F 0 "U?" H 8850 5728 50  0000 C CNN
@@ -1047,7 +1048,7 @@ F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/doc0006.pdf" H 8850 4450 50
 	1    0    0    -1  
 $EndComp
 $Comp
-L 32u4_EEPROM:28C16 U?
+L 32u4-programmer-rescue:28C16-32u4_EEPROM U?
 U 1 1 5E0DE7CC
 P 7250 4000
 F 0 "U?" H 7250 4878 50  0000 C CNN
@@ -1301,7 +1302,7 @@ Wire Bus Line
 Wire Bus Line
 	3950 2800 4450 2800
 $Comp
-L 32u4_EEPROM:28C040 U?
+L 32u4-programmer-rescue:28C040-32u4_EEPROM U?
 U 1 1 5E42D5D8
 P 10400 4850
 F 0 "U?" H 10400 6528 50  0000 C CNN

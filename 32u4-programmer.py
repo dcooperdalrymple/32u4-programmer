@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # vim:fileencoding=ISO-8859-1
 #
-# Title: ItsyBitsy Programmer
+# Title: 32u4 Programmer
 # Author: D Cooper Dalrymple
 # Created: 20/08/2019
 # Updated: 20/08/2019
