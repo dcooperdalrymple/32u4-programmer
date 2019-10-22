@@ -7,5 +7,11 @@
 # Updated: 20/08/2019
 # https://dcooperdalrymple.com/
 
-import argparse
-import sys
+from app.controller import AppController
+from app.view import AppView # wxPython UI
+
+def main():
+    AppController(AppView).run()
+
+if __name__ == '__main__':
+    main()
