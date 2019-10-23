@@ -2,6 +2,11 @@
 
 import wx
 import wx.adv
+import os
+
+ABSPATH = os.path.dirname(os.path.abspath(__file__))
+if ABSPATH.endswith('app'):
+    ABSPATH = ABSPATH[:-3]
 
 class AppView():
 
@@ -25,6 +30,10 @@ class AppView():
 
     def destroy(self):
         self.frame.Close()
+
+    def ShowError(self, message, title="Error"):
+        with wx.MessageDialog(self, message, title, wx.OK | wx.ICON_ERROR) as dialog:
+            dialog.ShowModal()
 
 class AppFrame(wx.Frame):
 
@@ -97,6 +106,8 @@ class AppFrame(wx.Frame):
         #wx.MessageBox(self.getAboutMessage(), caption = "About 32u4 Programmer", style = wx.OK | wx.ICON_INFORMATION | wx.CENTRE)
 
     def showAboutDialog(self):
+        global ABSPATH
+
         info = wx.adv.AboutDialogInfo()
 
         info.SetName("32u4 Programmer Utility")
@@ -105,9 +116,13 @@ class AppFrame(wx.Frame):
         info.SetDescription(self.getAboutMessage())
         info.SetWebSite("https://github.com/dcooperdalrymple/32u4-programmer/", "32u4 Programmer Github Project")
         info.AddDeveloper("D Cooper Dalrymple")
-        info.SetIcon(wx.Icon("./assets/icon.png"))
 
-        with open('./LICENSE', 'r') as file:
+        icon_path = ABSPATH + "assets/icon.png"
+        if os.name == 'nt':
+            icon_path = ABSPATH + "assets\\icon.png"
+        info.SetIcon(wx.Icon(icon_path, type = wx.BITMAP_TYPE_PNG))
+
+        with open(ABSPATH + "LICENSE", 'r') as file:
             if file.mode == 'r':
                 info.License = file.read()
             file.close()
