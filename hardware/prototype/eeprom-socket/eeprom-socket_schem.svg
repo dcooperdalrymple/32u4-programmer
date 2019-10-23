@@ -1,288 +1,2000 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Fritzing (http://www.fritzing.org/) -->
-<svg xmlns:svg='http://www.w3.org/2000/svg' xmlns='http://www.w3.org/2000/svg' version='1.2' baseProfile='tiny' x='0in' y='0in' width='1.20972in' height='4.20999in' viewBox='0 0 87.0998 303.119' >
-<g partID='854380360'><g gorn="0.0" id="schematic">
-<polygon stroke="#000000" points="36.3499,0.36,50.7499,0.36,72.3509,0.36,72.3509,302.76,14.75,302.76,14.75,0.36" stroke-width="0.899998" fill="#FFFFFF" stroke-linecap="round"/>
-<path stroke="#000000" stroke-width="0.749999" d="M50.7499,0.36c0,3.977,-3.22399,7.20001,-7.19999,7.20001c-3.97699,0,-7.19999,-3.224,-7.19999,-7.20001" fill="none"/>
-<line x1="0.349999" stroke="#787878" y1="14.76" stroke-width="0.749999" gorn="0.0.2" y2="14.76" x2="14.75" fill="none" id="connector0pin" stroke-linecap="round"/>
-<g x="0.349999" y="14.76" gorn="0.0.3" width="0" height="0" fill="none" id="connector0terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 13.7092)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">1</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="29.16" stroke-width="0.749999" gorn="0.0.5" y2="29.16" x2="14.75" fill="none" id="connector1pin" stroke-linecap="round"/>
-<g x="0.349999" y="29.16" gorn="0.0.6" width="0" height="0" fill="none" id="connector1terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 28.1096)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">2</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="43.56" stroke-width="0.749999" gorn="0.0.8" y2="43.56" x2="14.75" fill="none" id="connector2pin" stroke-linecap="round"/>
-<g x="0.349999" y="43.56" gorn="0.0.9" width="0" height="0" fill="none" id="connector2terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 42.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">3</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="57.9601" stroke-width="0.749999" gorn="0.0.11" y2="57.9601" x2="14.75" fill="none" id="connector3pin" stroke-linecap="round"/>
-<g x="0.349999" y="57.9601" gorn="0.0.12" width="0" height="0" fill="none" id="connector3terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 56.9105)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">4</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="72.3601" stroke-width="0.749999" gorn="0.0.14" y2="72.3601" x2="14.75" fill="none" id="connector4pin" stroke-linecap="round"/>
-<g x="0.349999" y="72.3601" gorn="0.0.15" width="0" height="0.001" fill="none" id="connector4terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 71.3109)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">5</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="86.7601" stroke-width="0.749999" gorn="0.0.17" y2="86.7601" x2="14.75" fill="none" id="connector5pin" stroke-linecap="round"/>
-<g x="0.349999" y="86.7601" gorn="0.0.18" width="0" height="0" fill="none" id="connector5terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 85.7093)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">6</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="101.16" stroke-width="0.749999" gorn="0.0.20" y2="101.16" x2="14.75" fill="none" id="connector6pin" stroke-linecap="round"/>
-<g x="0.349999" y="101.16" gorn="0.0.21" width="0" height="0" fill="none" id="connector6terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 100.11)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">7</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="115.56" stroke-width="0.749999" gorn="0.0.23" y2="115.56" x2="14.75" fill="none" id="connector7pin" stroke-linecap="round"/>
-<g x="0.349999" y="115.56" gorn="0.0.24" width="0" height="0" fill="none" id="connector7terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 114.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">8</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="129.96" stroke-width="0.749999" gorn="0.0.26" y2="129.96" x2="14.75" fill="none" id="connector8pin" stroke-linecap="round"/>
-<g x="0.349999" y="129.96" gorn="0.0.27" width="0" height="0" fill="none" id="connector8terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.86129, 128.911)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">9</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="144.36" stroke-width="0.749999" gorn="0.0.29" y2="144.36" x2="14.75" fill="none" id="connector9pin" stroke-linecap="round"/>
-<g x="0.349999" y="144.36" gorn="0.0.30" width="0" height="0.001" fill="none" id="connector9terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 143.311)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">10</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="158.76" stroke-width="0.749999" gorn="0.0.32" y2="158.76" x2="14.75" fill="none" id="connector10pin" stroke-linecap="round"/>
-<g x="0.349999" y="158.76" gorn="0.0.33" width="0" height="0" fill="none" id="connector10terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 157.709)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">11</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="173.16" stroke-width="0.749999" gorn="0.0.35" y2="173.16" x2="14.75" fill="none" id="connector11pin" stroke-linecap="round"/>
-<g x="0.349999" y="173.16" gorn="0.0.36" width="0" height="0" fill="none" id="connector11terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 172.11)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">12</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="187.56" stroke-width="0.749999" gorn="0.0.38" y2="187.56" x2="14.75" fill="none" id="connector12pin" stroke-linecap="round"/>
-<g x="0.349999" y="187.56" gorn="0.0.39" width="0" height="0" fill="none" id="connector12terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 186.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">13</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="201.96" stroke-width="0.749999" gorn="0.0.41" y2="201.96" x2="14.75" fill="none" id="connector13pin" stroke-linecap="round"/>
-<g x="0.349999" y="201.96" gorn="0.0.42" width="0" height="0" fill="none" id="connector13terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 200.911)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">14</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="216.36" stroke-width="0.749999" gorn="0.0.44" y2="216.36" x2="14.75" fill="none" id="connector14pin" stroke-linecap="round"/>
-<g x="0.349999" y="216.36" gorn="0.0.45" width="0" height="0.001" fill="none" id="connector14terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 215.309)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">15</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="230.76" stroke-width="0.749999" gorn="0.0.47" y2="230.76" x2="14.75" fill="none" id="connector15pin" stroke-linecap="round"/>
-<g x="0.349999" y="230.76" gorn="0.0.48" width="0" height="0" fill="none" id="connector15terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 229.709)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">16</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="245.16" stroke-width="0.749999" gorn="0.0.50" y2="245.16" x2="14.75" fill="none" id="connector16pin" stroke-linecap="round"/>
-<g x="0.349999" y="245.16" gorn="0.0.51" width="0" height="0" fill="none" id="connector16terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 244.11)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">17</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="259.56" stroke-width="0.749999" gorn="0.0.53" y2="259.56" x2="14.75" fill="none" id="connector17pin" stroke-linecap="round"/>
-<g x="0.349999" y="259.56" gorn="0.0.54" width="0" height="0" fill="none" id="connector17terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 258.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">18</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="273.96" stroke-width="0.749999" gorn="0.0.56" y2="273.96" x2="14.75" fill="none" id="connector18pin" stroke-linecap="round"/>
-<g x="0.349999" y="273.96" gorn="0.0.57" width="0" height="0" fill="none" id="connector18terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 272.911)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">19</text>
-</g>
-</g>
-<line x1="0.349999" stroke="#787878" y1="288.36" stroke-width="0.749999" gorn="0.0.59" y2="288.36" x2="14.75" fill="none" id="connector19pin" stroke-linecap="round"/>
-<g x="0.349999" y="288.36" gorn="0.0.60" width="0" height="0.001" fill="none" id="connector19terminal"/>
-<g transform="matrix(1, 0, 0, 1, 6.17379, 287.311)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">20</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="288.36" stroke-width="0.749999" gorn="0.0.62" y2="288.36" x2="72.3509" fill="none" id="connector20pin" stroke-linecap="round"/>
-<g x="86.7498" y="288.36" gorn="0.0.63" width="0.000999998" height="0.001" fill="none" id="connector20terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 287.311)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">21</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="273.96" stroke-width="0.749999" gorn="0.0.65" y2="273.96" x2="72.3509" fill="none" id="connector21pin" stroke-linecap="round"/>
-<g x="86.7498" y="273.96" gorn="0.0.66" width="0.000999998" height="0" fill="none" id="connector21terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 272.911)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">22</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="259.56" stroke-width="0.749999" gorn="0.0.68" y2="259.56" x2="72.3509" fill="none" id="connector22pin" stroke-linecap="round"/>
-<g x="86.7498" y="259.56" gorn="0.0.69" width="0.000999998" height="0" fill="none" id="connector22terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 258.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">23</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="245.16" stroke-width="0.749999" gorn="0.0.71" y2="245.16" x2="72.3509" fill="none" id="connector23pin" stroke-linecap="round"/>
-<g x="86.7498" y="245.16" gorn="0.0.72" width="0.000999998" height="0" fill="none" id="connector23terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 244.11)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">24</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="230.76" stroke-width="0.749999" gorn="0.0.74" y2="230.76" x2="72.3509" fill="none" id="connector24pin" stroke-linecap="round"/>
-<g x="86.7498" y="230.76" gorn="0.0.75" width="0.000999998" height="0" fill="none" id="connector24terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 229.709)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">25</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="216.36" stroke-width="0.749999" gorn="0.0.77" y2="216.36" x2="72.3509" fill="none" id="connector25pin" stroke-linecap="round"/>
-<g x="86.7498" y="216.36" gorn="0.0.78" width="0.000999998" height="0.001" fill="none" id="connector25terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 215.309)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">26</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="201.96" stroke-width="0.749999" gorn="0.0.80" y2="201.96" x2="72.3509" fill="none" id="connector26pin" stroke-linecap="round"/>
-<g x="86.7498" y="201.96" gorn="0.0.81" width="0.000999998" height="0" fill="none" id="connector26terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 200.911)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">27</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="187.56" stroke-width="0.749999" gorn="0.0.83" y2="187.56" x2="72.3509" fill="none" id="connector27pin" stroke-linecap="round"/>
-<g x="86.7498" y="187.56" gorn="0.0.84" width="0.000999998" height="0" fill="none" id="connector27terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 186.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">28</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="173.16" stroke-width="0.749999" gorn="0.0.86" y2="173.16" x2="72.3509" fill="none" id="connector28pin" stroke-linecap="round"/>
-<g x="86.7498" y="173.16" gorn="0.0.87" width="0.000999998" height="0" fill="none" id="connector28terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 172.11)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">29</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="158.76" stroke-width="0.749999" gorn="0.0.89" y2="158.76" x2="72.3509" fill="none" id="connector29pin" stroke-linecap="round"/>
-<g x="86.7498" y="158.76" gorn="0.0.90" width="0.000999998" height="0" fill="none" id="connector29terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 157.709)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">30</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="144.36" stroke-width="0.749999" gorn="0.0.92" y2="144.36" x2="72.3509" fill="none" id="connector30pin" stroke-linecap="round"/>
-<g x="86.7498" y="144.36" gorn="0.0.93" width="0.000999998" height="0.001" fill="none" id="connector30terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 143.311)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">31</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="129.96" stroke-width="0.749999" gorn="0.0.95" y2="129.96" x2="72.3509" fill="none" id="connector31pin" stroke-linecap="round"/>
-<g x="86.7498" y="129.96" gorn="0.0.96" width="0.000999998" height="0" fill="none" id="connector31terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 128.911)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">32</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="115.56" stroke-width="0.749999" gorn="0.0.98" y2="115.56" x2="72.3509" fill="none" id="connector32pin" stroke-linecap="round"/>
-<g x="86.7498" y="115.56" gorn="0.0.99" width="0.000999998" height="0" fill="none" id="connector32terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 114.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">33</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="101.16" stroke-width="0.749999" gorn="0.0.101" y2="101.16" x2="72.3509" fill="none" id="connector33pin" stroke-linecap="round"/>
-<g x="86.7498" y="101.16" gorn="0.0.102" width="0.000999998" height="0" fill="none" id="connector33terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 100.11)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">34</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="86.7601" stroke-width="0.749999" gorn="0.0.104" y2="86.7601" x2="72.3509" fill="none" id="connector34pin" stroke-linecap="round"/>
-<g x="86.7498" y="86.7601" gorn="0.0.105" width="0.000999998" height="0" fill="none" id="connector34terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 85.7093)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">35</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="72.3601" stroke-width="0.749999" gorn="0.0.107" y2="72.3601" x2="72.3509" fill="none" id="connector35pin" stroke-linecap="round"/>
-<g x="86.7498" y="72.3601" gorn="0.0.108" width="0.000999998" height="0.001" fill="none" id="connector35terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 71.3109)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">36</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="57.9601" stroke-width="0.749999" gorn="0.0.110" y2="57.9601" x2="72.3509" fill="none" id="connector36pin" stroke-linecap="round"/>
-<g x="86.7498" y="57.9601" gorn="0.0.111" width="0.000999998" height="0" fill="none" id="connector36terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 56.9105)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">37</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="43.56" stroke-width="0.749999" gorn="0.0.113" y2="43.56" x2="72.3509" fill="none" id="connector37pin" stroke-linecap="round"/>
-<g x="86.7498" y="43.56" gorn="0.0.114" width="0.000999998" height="0" fill="none" id="connector37terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 42.51)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">38</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="29.16" stroke-width="0.749999" gorn="0.0.116" y2="29.16" x2="72.3509" fill="none" id="connector38pin" stroke-linecap="round"/>
-<g x="86.7498" y="29.16" gorn="0.0.117" width="0.000999998" height="0" fill="none" id="connector38terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 28.1096)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">39</text>
-</g>
-</g>
-<line x1="86.7498" stroke="#787878" y1="14.76" stroke-width="0.749999" gorn="0.0.119" y2="14.76" x2="72.3509" fill="none" id="connector39pin" stroke-linecap="round"/>
-<g x="86.7498" y="14.76" gorn="0.0.120" width="0.000999998" height="0" fill="none" id="connector39terminal"/>
-<g transform="matrix(1, 0, 0, 1, 78.1737, 13.7092)">
-<g>
-<text font-size="2.5" font-family="'DroidSans'" fill="#8C8C8C">40</text>
-</g>
-</g>
-</g>
-</g></svg>
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
+   x="0in"
+   y="0in"
+   width="1.20972in"
+   height="4.20999in"
+   viewBox="0 0 87.0998 303.119"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="eeprom-socket_schem.svg">
+  <metadata
+     id="metadata335">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs333" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview331"
+     showgrid="false"
+     inkscape:zoom="1.7617059"
+     inkscape:cx="84.440899"
+     inkscape:cy="179.49396"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <g
+     partID="854380360"
+     id="g4">
+    <g
+       gorn="0.0"
+       id="schematic">
+      <polygon
+         points="36.3499,0.36,50.7499,0.36,72.3509,0.36,72.3509,302.76,14.75,302.76,14.75,0.36"
+         id="polygon7"
+         stroke-linecap="round"
+         stroke-width="0.899998"
+         stroke="#000000"
+         fill="#FFFFFF" />
+      <path
+         d="M50.7499,0.36c0,3.977,-3.22399,7.20001,-7.19999,7.20001c-3.97699,0,-7.19999,-3.224,-7.19999,-7.20001"
+         id="path9"
+         stroke-width="0.749999"
+         stroke="#000000"
+         fill="none" />
+      <line
+         x1="0.349999"
+         y1="14.76"
+         gorn="0.0.2"
+         y2="14.76"
+         x2="14.75"
+         id="connector0pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="14.76"
+         gorn="0.0.3"
+         width="0"
+         height="0"
+         id="connector0terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 13.7092)"
+         id="g13">
+        <g
+           id="g15">
+          <text
+             font-size="2.5"
+             id="text17"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">1</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="29.16"
+         gorn="0.0.5"
+         y2="29.16"
+         x2="14.75"
+         id="connector1pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="29.16"
+         gorn="0.0.6"
+         width="0"
+         height="0"
+         id="connector1terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 28.1096)"
+         id="g21">
+        <g
+           id="g23">
+          <text
+             font-size="2.5"
+             id="text25"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">2</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="43.56"
+         gorn="0.0.8"
+         y2="43.56"
+         x2="14.75"
+         id="connector2pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="43.56"
+         gorn="0.0.9"
+         width="0"
+         height="0"
+         id="connector2terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 42.51)"
+         id="g29">
+        <g
+           id="g31">
+          <text
+             font-size="2.5"
+             id="text33"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">3</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="57.9601"
+         gorn="0.0.11"
+         y2="57.9601"
+         x2="14.75"
+         id="connector3pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="57.9601"
+         gorn="0.0.12"
+         width="0"
+         height="0"
+         id="connector3terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 56.9105)"
+         id="g37">
+        <g
+           id="g39">
+          <text
+             font-size="2.5"
+             id="text41"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">4</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="72.3601"
+         gorn="0.0.14"
+         y2="72.3601"
+         x2="14.75"
+         id="connector4pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="72.3601"
+         gorn="0.0.15"
+         width="0"
+         height="0.001"
+         id="connector4terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 71.3109)"
+         id="g45">
+        <g
+           id="g47">
+          <text
+             font-size="2.5"
+             id="text49"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">5</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="86.7601"
+         gorn="0.0.17"
+         y2="86.7601"
+         x2="14.75"
+         id="connector5pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="86.7601"
+         gorn="0.0.18"
+         width="0"
+         height="0"
+         id="connector5terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 85.7093)"
+         id="g53">
+        <g
+           id="g55">
+          <text
+             font-size="2.5"
+             id="text57"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">6</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="101.16"
+         gorn="0.0.20"
+         y2="101.16"
+         x2="14.75"
+         id="connector6pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="101.16"
+         gorn="0.0.21"
+         width="0"
+         height="0"
+         id="connector6terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 100.11)"
+         id="g61">
+        <g
+           id="g63">
+          <text
+             font-size="2.5"
+             id="text65"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">7</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="115.56"
+         gorn="0.0.23"
+         y2="115.56"
+         x2="14.75"
+         id="connector7pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="115.56"
+         gorn="0.0.24"
+         width="0"
+         height="0"
+         id="connector7terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 114.51)"
+         id="g69">
+        <g
+           id="g71">
+          <text
+             font-size="2.5"
+             id="text73"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">8</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="129.96"
+         gorn="0.0.26"
+         y2="129.96"
+         x2="14.75"
+         id="connector8pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="129.96"
+         gorn="0.0.27"
+         width="0"
+         height="0"
+         id="connector8terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.86129, 128.911)"
+         id="g77">
+        <g
+           id="g79">
+          <text
+             font-size="2.5"
+             id="text81"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">9</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="144.36"
+         gorn="0.0.29"
+         y2="144.36"
+         x2="14.75"
+         id="connector9pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="144.36"
+         gorn="0.0.30"
+         width="0"
+         height="0.001"
+         id="connector9terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 143.311)"
+         id="g85">
+        <g
+           id="g87">
+          <text
+             font-size="2.5"
+             id="text89"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">10</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="158.76"
+         gorn="0.0.32"
+         y2="158.76"
+         x2="14.75"
+         id="connector10pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="158.76"
+         gorn="0.0.33"
+         width="0"
+         height="0"
+         id="connector10terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 157.709)"
+         id="g93">
+        <g
+           id="g95">
+          <text
+             font-size="2.5"
+             id="text97"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">11</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="173.16"
+         gorn="0.0.35"
+         y2="173.16"
+         x2="14.75"
+         id="connector11pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="173.16"
+         gorn="0.0.36"
+         width="0"
+         height="0"
+         id="connector11terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 172.11)"
+         id="g101">
+        <g
+           id="g103">
+          <text
+             font-size="2.5"
+             id="text105"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">12</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="187.56"
+         gorn="0.0.38"
+         y2="187.56"
+         x2="14.75"
+         id="connector12pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="187.56"
+         gorn="0.0.39"
+         width="0"
+         height="0"
+         id="connector12terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 186.51)"
+         id="g109">
+        <g
+           id="g111">
+          <text
+             font-size="2.5"
+             id="text113"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">13</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="201.96"
+         gorn="0.0.41"
+         y2="201.96"
+         x2="14.75"
+         id="connector13pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="201.96"
+         gorn="0.0.42"
+         width="0"
+         height="0"
+         id="connector13terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 200.911)"
+         id="g117">
+        <g
+           id="g119">
+          <text
+             font-size="2.5"
+             id="text121"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">14</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="216.36"
+         gorn="0.0.44"
+         y2="216.36"
+         x2="14.75"
+         id="connector14pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="216.36"
+         gorn="0.0.45"
+         width="0"
+         height="0.001"
+         id="connector14terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 215.309)"
+         id="g125">
+        <g
+           id="g127">
+          <text
+             font-size="2.5"
+             id="text129"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">15</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="230.76"
+         gorn="0.0.47"
+         y2="230.76"
+         x2="14.75"
+         id="connector15pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="230.76"
+         gorn="0.0.48"
+         width="0"
+         height="0"
+         id="connector15terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 229.709)"
+         id="g133">
+        <g
+           id="g135">
+          <text
+             font-size="2.5"
+             id="text137"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">16</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="245.16"
+         gorn="0.0.50"
+         y2="245.16"
+         x2="14.75"
+         id="connector16pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="245.16"
+         gorn="0.0.51"
+         width="0"
+         height="0"
+         id="connector16terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 244.11)"
+         id="g141">
+        <g
+           id="g143">
+          <text
+             font-size="2.5"
+             id="text145"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">17</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="259.56"
+         gorn="0.0.53"
+         y2="259.56"
+         x2="14.75"
+         id="connector17pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="259.56"
+         gorn="0.0.54"
+         width="0"
+         height="0"
+         id="connector17terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 258.51)"
+         id="g149">
+        <g
+           id="g151">
+          <text
+             font-size="2.5"
+             id="text153"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">18</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="273.96"
+         gorn="0.0.56"
+         y2="273.96"
+         x2="14.75"
+         id="connector18pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="273.96"
+         gorn="0.0.57"
+         width="0"
+         height="0"
+         id="connector18terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 272.911)"
+         id="g157">
+        <g
+           id="g159">
+          <text
+             font-size="2.5"
+             id="text161"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">19</text>
+        </g>
+      </g>
+      <line
+         x1="0.349999"
+         y1="288.36"
+         gorn="0.0.59"
+         y2="288.36"
+         x2="14.75"
+         id="connector19pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="0.349999"
+         y="288.36"
+         gorn="0.0.60"
+         width="0"
+         height="0.001"
+         id="connector19terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 6.17379, 287.311)"
+         id="g165">
+        <g
+           id="g167">
+          <text
+             font-size="2.5"
+             id="text169"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">20</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="288.36"
+         gorn="0.0.62"
+         y2="288.36"
+         x2="72.3509"
+         id="connector20pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="288.36"
+         gorn="0.0.63"
+         width="0.000999998"
+         height="0.001"
+         id="connector20terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 287.311)"
+         id="g173">
+        <g
+           id="g175">
+          <text
+             font-size="2.5"
+             id="text177"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">21</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="273.96"
+         gorn="0.0.65"
+         y2="273.96"
+         x2="72.3509"
+         id="connector21pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="273.96"
+         gorn="0.0.66"
+         width="0.000999998"
+         height="0"
+         id="connector21terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 272.911)"
+         id="g181">
+        <g
+           id="g183">
+          <text
+             font-size="2.5"
+             id="text185"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">22</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="259.56"
+         gorn="0.0.68"
+         y2="259.56"
+         x2="72.3509"
+         id="connector22pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="259.56"
+         gorn="0.0.69"
+         width="0.000999998"
+         height="0"
+         id="connector22terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 258.51)"
+         id="g189">
+        <g
+           id="g191">
+          <text
+             font-size="2.5"
+             id="text193"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">23</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="245.16"
+         gorn="0.0.71"
+         y2="245.16"
+         x2="72.3509"
+         id="connector23pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="245.16"
+         gorn="0.0.72"
+         width="0.000999998"
+         height="0"
+         id="connector23terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 244.11)"
+         id="g197">
+        <g
+           id="g199">
+          <text
+             font-size="2.5"
+             id="text201"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">24</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="230.76"
+         gorn="0.0.74"
+         y2="230.76"
+         x2="72.3509"
+         id="connector24pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="230.76"
+         gorn="0.0.75"
+         width="0.000999998"
+         height="0"
+         id="connector24terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 229.709)"
+         id="g205">
+        <g
+           id="g207">
+          <text
+             font-size="2.5"
+             id="text209"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">25</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="216.36"
+         gorn="0.0.77"
+         y2="216.36"
+         x2="72.3509"
+         id="connector25pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="216.36"
+         gorn="0.0.78"
+         width="0.000999998"
+         height="0.001"
+         id="connector25terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 215.309)"
+         id="g213">
+        <g
+           id="g215">
+          <text
+             font-size="2.5"
+             id="text217"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">26</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="201.96"
+         gorn="0.0.80"
+         y2="201.96"
+         x2="72.3509"
+         id="connector26pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="201.96"
+         gorn="0.0.81"
+         width="0.000999998"
+         height="0"
+         id="connector26terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 200.911)"
+         id="g221">
+        <g
+           id="g223">
+          <text
+             font-size="2.5"
+             id="text225"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">27</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="187.56"
+         gorn="0.0.83"
+         y2="187.56"
+         x2="72.3509"
+         id="connector27pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="187.56"
+         gorn="0.0.84"
+         width="0.000999998"
+         height="0"
+         id="connector27terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 186.51)"
+         id="g229">
+        <g
+           id="g231">
+          <text
+             font-size="2.5"
+             id="text233"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">28</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="173.16"
+         gorn="0.0.86"
+         y2="173.16"
+         x2="72.3509"
+         id="connector28pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="173.16"
+         gorn="0.0.87"
+         width="0.000999998"
+         height="0"
+         id="connector28terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 172.11)"
+         id="g237">
+        <g
+           id="g239">
+          <text
+             font-size="2.5"
+             id="text241"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">29</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="158.76"
+         gorn="0.0.89"
+         y2="158.76"
+         x2="72.3509"
+         id="connector29pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="158.76"
+         gorn="0.0.90"
+         width="0.000999998"
+         height="0"
+         id="connector29terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 157.709)"
+         id="g245">
+        <g
+           id="g247">
+          <text
+             font-size="2.5"
+             id="text249"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">30</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="144.36"
+         gorn="0.0.92"
+         y2="144.36"
+         x2="72.3509"
+         id="connector30pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="144.36"
+         gorn="0.0.93"
+         width="0.000999998"
+         height="0.001"
+         id="connector30terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 143.311)"
+         id="g253">
+        <g
+           id="g255">
+          <text
+             font-size="2.5"
+             id="text257"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">31</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="129.96"
+         gorn="0.0.95"
+         y2="129.96"
+         x2="72.3509"
+         id="connector31pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="129.96"
+         gorn="0.0.96"
+         width="0.000999998"
+         height="0"
+         id="connector31terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 128.911)"
+         id="g261">
+        <g
+           id="g263">
+          <text
+             font-size="2.5"
+             id="text265"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">32</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="115.56"
+         gorn="0.0.98"
+         y2="115.56"
+         x2="72.3509"
+         id="connector32pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="115.56"
+         gorn="0.0.99"
+         width="0.000999998"
+         height="0"
+         id="connector32terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 114.51)"
+         id="g269">
+        <g
+           id="g271">
+          <text
+             font-size="2.5"
+             id="text273"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">33</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="101.16"
+         gorn="0.0.101"
+         y2="101.16"
+         x2="72.3509"
+         id="connector33pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="101.16"
+         gorn="0.0.102"
+         width="0.000999998"
+         height="0"
+         id="connector33terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 100.11)"
+         id="g277">
+        <g
+           id="g279">
+          <text
+             font-size="2.5"
+             id="text281"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">34</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="86.7601"
+         gorn="0.0.104"
+         y2="86.7601"
+         x2="72.3509"
+         id="connector34pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="86.7601"
+         gorn="0.0.105"
+         width="0.000999998"
+         height="0"
+         id="connector34terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 85.7093)"
+         id="g285">
+        <g
+           id="g287">
+          <text
+             font-size="2.5"
+             id="text289"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">35</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="72.3601"
+         gorn="0.0.107"
+         y2="72.3601"
+         x2="72.3509"
+         id="connector35pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="72.3601"
+         gorn="0.0.108"
+         width="0.000999998"
+         height="0.001"
+         id="connector35terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 71.3109)"
+         id="g293">
+        <g
+           id="g295">
+          <text
+             font-size="2.5"
+             id="text297"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">36</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="57.9601"
+         gorn="0.0.110"
+         y2="57.9601"
+         x2="72.3509"
+         id="connector36pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="57.9601"
+         gorn="0.0.111"
+         width="0.000999998"
+         height="0"
+         id="connector36terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 56.9105)"
+         id="g301">
+        <g
+           id="g303">
+          <text
+             font-size="2.5"
+             id="text305"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">37</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="43.56"
+         gorn="0.0.113"
+         y2="43.56"
+         x2="72.3509"
+         id="connector37pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="43.56"
+         gorn="0.0.114"
+         width="0.000999998"
+         height="0"
+         id="connector37terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 42.51)"
+         id="g309">
+        <g
+           id="g311">
+          <text
+             font-size="2.5"
+             id="text313"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">38</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="29.16"
+         gorn="0.0.116"
+         y2="29.16"
+         x2="72.3509"
+         id="connector38pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="29.16"
+         gorn="0.0.117"
+         width="0.000999998"
+         height="0"
+         id="connector38terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 28.1096)"
+         id="g317">
+        <g
+           id="g319">
+          <text
+             font-size="2.5"
+             id="text321"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">39</text>
+        </g>
+      </g>
+      <line
+         x1="86.7498"
+         y1="14.76"
+         gorn="0.0.119"
+         y2="14.76"
+         x2="72.3509"
+         id="connector39pin"
+         stroke-linecap="round"
+         stroke-width="0.749999"
+         stroke="#787878"
+         fill="none" />
+      <g
+         x="86.7498"
+         y="14.76"
+         gorn="0.0.120"
+         width="0.000999998"
+         height="0"
+         id="connector39terminal"
+         fill="none" />
+      <g
+         transform="matrix(1, 0, 0, 1, 78.1737, 13.7092)"
+         id="g325">
+        <g
+           id="g327">
+          <text
+             font-size="2.5"
+             id="text329"
+             font-family="'DroidSans'"
+             fill="#8C8C8C">40</text>
+        </g>
+      </g>
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.74959964;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 50.767976,64.785195 c 0,3.977 -3.223989,7.20001 -7.199989,7.20001 -3.97699,0 -7.19999,-3.224 -7.19999,-7.20001"
+         id="path9-0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.8059817;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 14.300001,65.188186 58.535972,0"
+         id="path5323"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.80598176;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 14.300001,93.988173 58.535972,0"
+         id="path5323-8"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.80598176;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 14.300001,122.78816 58.535972,0"
+         id="path5323-9"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.74959964;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 50.767977,93.585182 c 0,3.977 -3.22399,7.200008 -7.19999,7.200008 -3.97699,0 -7.199989,-3.223998 -7.199989,-7.200008"
+         id="path9-0-5" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.74959964;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 50.767977,122.38517 c 0,3.977 -3.22399,7.20001 -7.19999,7.20001 -3.97699,0 -7.199989,-3.224 -7.199989,-7.20001"
+         id="path9-0-6" />
+    </g>
+  </g>
+  <g
+     id="g5393">
+    <g
+       transform="translate(61.865815,0)"
+       id="g4947">
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463"
+         transform="translate(0,0.17334535)">
+        <path
+           d="m -41.573823,288.99364 0,0.612 c 0,0.264 -0.18,0.312 -0.396,0.312 l -0.954,0 c -0.341999,0 -0.413999,-0.102 -0.413999,-0.432 l 0,-1.176 c 0,-0.294 0,-0.546 0.185999,-0.78 l 0.654,-0.834 c 0.198,-0.252 0.174,-0.246 0.504,-0.246 l 0.72,0 c 0.155999,0 0.299999,-0.084 0.299999,-0.3 0,-0.216 -0.144,-0.3 -0.299999,-0.3 l -0.804,0 c -0.39,0 -0.6,0.102 -0.84,0.408 l -0.707999,0.906 c -0.228,0.294 -0.312,0.492 -0.312,0.876 l 0,1.5 c 0,0.3 0.042,0.522 0.282,0.738 0.21,0.192 0.414,0.24 0.689999,0.24 l 1.032,0 c 0.57,0 0.959999,-0.36 0.959999,-0.942 l 0,-1.182 -1.181999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.582,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4941"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.249606,289.49164 -0.012,0 0.006,0 -1.566,-3.642 -0.791999,0 0,4.368 c 0,0.192 0.084,0.3 0.3,0.3 0.215999,0 0.299999,-0.108 0.299999,-0.3 l 0,-3.3 0.012,0 0,0.006 1.566,3.6 0.791999,0 0,-4.368 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.215999,0 -0.299999,0.108 -0.299999,0.3 l -0.006,3.336 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4943"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -34.701389,289.91764 -0.288,0 c -0.156,0 -0.299999,0.084 -0.299999,0.3 0,0.216 0.143999,0.3 0.299999,0.3 l 0.996,0 c 0.468,0 0.738,-0.138 0.947999,-0.564 l 0.546,-1.092 c 0.108,-0.216 0.174,-0.42 0.174,-0.66 0,-0.276 -0.06,-0.45 -0.18,-0.696 l -0.528,-1.056 c -0.203999,-0.408 -0.437999,-0.6 -0.905999,-0.6 l -1.002,0 c -0.186,0 -0.347999,0.084 -0.347999,0.3 0,0.228 0.167999,0.3 0.365999,0.3 l 0.222,0 0,3.468 z m 0.6,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.456,0.252 l 0.497999,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.527999,1.068 c -0.108,0.222 -0.168,0.252 -0.42,0.252 l -0.114,0 0,-3.468 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4945"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-5"
+         transform="translate(0,-1.676223)">
+        <path
+           d="m -43.349822,277.37022 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.29999 0,0.216 0.144,0.3 0.3,0.3 l 0.995999,0 c 0.468,0 0.738,-0.138 0.948,-0.56399 l 0.546,-1.092 c 0.107999,-0.216 0.173999,-0.42 0.173999,-0.66 0,-0.276 -0.06,-0.45 -0.179999,-0.696 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.906,-0.6 l -1.001999,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.468 z m 0.599999,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.456,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.108,0.222 -0.168,0.252 -0.42,0.252 l -0.114,0 0,-3.468 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4936"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -39.013606,275.93622 1.692,0 c 0.197999,0 0.335999,-0.03 0.485999,-0.168 0.168,-0.156 0.186,-0.318 0.186,-0.534 l 0,-1.23 c 0,-0.216 -0.018,-0.378 -0.186,-0.534 -0.15,-0.138 -0.288,-0.168 -0.485999,-0.168 l -1.991999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 0,1.434 -1.686,0 c -0.449999,0 -0.677999,0.228 -0.677999,0.678 l 0,1.95599 2.663998,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.21599 -0.144,-0.29999 -0.3,-0.29999 l -2.063999,0 0,-1.434 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4938"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3"
+         transform="translate(0,-1.4661095)">
+        <path
+           d="m -43.349822,262.76011 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.995999,0 c 0.468,0 0.738,-0.138 0.948,-0.564 l 0.546,-1.092 c 0.107999,-0.216 0.173999,-0.42 0.173999,-0.66 0,-0.276 -0.06,-0.45 -0.179999,-0.696 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.906,-0.6 l -1.001999,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.468 z m 0.599999,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.456,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.108,0.222 -0.168,0.252 -0.42,0.252 l -0.114,0 0,-3.468 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4931"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.831606,262.76011 0,-4.068 -1.481999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.881999,0 0,3.468 -0.881999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363998,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.221999,0 -0.299999,0.126 -0.299999,0.3 l 0,1.212 -0.582,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4933"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-8"
+         transform="translate(0,2.1115468)">
+        <path
+           d="m -43.349822,244.78246 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.995999,0 c 0.468,0 0.738,-0.138 0.948,-0.564 l 0.546,-1.092 c 0.107999,-0.216 0.173999,-0.42 0.173999,-0.66 0,-0.276 -0.06,-0.45 -0.179999,-0.696 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.906,-0.6 l -1.001999,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.468 z m 0.599999,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.456,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.108,0.222 -0.168,0.252 -0.42,0.252 l -0.114,0 0,-3.468 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4926"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -39.013606,240.71446 c -0.329999,0 -0.599999,0.27 -0.599999,0.6 l 0,3.468 c 0,0.336 0.258,0.6 0.599999,0.6 l 1.764,0 c 0.341999,0 0.599999,-0.264 0.599999,-0.6 l 0,-3.468 c 0,-0.33 -0.27,-0.6 -0.599999,-0.6 l -1.764,0 z m 0,4.068 0,-3.468 1.764,0 0,3.468 -1.764,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4928"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5"
+         transform="translate(0,0.55557835)">
+        <path
+           d="m -43.931104,232.23844 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4921"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -39.006888,227.87044 c -0.33,0 -0.6,0.27 -0.6,0.6 l 0,3.468 c 0,0.336 0.258,0.6 0.6,0.6 l 1.763999,0 c 0.342,0 0.6,-0.264 0.6,-0.6 l 0,-3.468 c 0,-0.33 -0.27,-0.6 -0.6,-0.6 l -1.763999,0 z m 0,4.068 0,-3.468 1.763999,0 0,3.468 -1.763999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4923"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9"
+         transform="translate(0,-0.67926603)">
+        <path
+           d="m -43.931104,219.07329 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4916"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.824888,218.77329 0,-4.068 -1.482,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.882,0 0,3.468 -0.882,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.581999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4918"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-6"
+         transform="translate(0,2.5812732)">
+        <path
+           d="m -43.931104,201.41275 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.06199 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.06199 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4911"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -39.006888,199.67875 1.691999,0 c 0.198,0 0.336,-0.03 0.486,-0.168 0.168,-0.156 0.186,-0.318 0.186,-0.534 l 0,-1.22999 c 0,-0.216 -0.018,-0.378 -0.186,-0.534 -0.15,-0.138 -0.288,-0.168 -0.486,-0.168 l -1.991999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 0,1.43399 -1.685999,0 c -0.45,0 -0.678,0.228 -0.678,0.678 l 0,1.956 2.663999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.063999,0 0,-1.434 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4913"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-9"
+         transform="translate(0,4.2363261)">
+        <path
+           d="m -43.931104,185.35771 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.71999 1.278,0 0.221999,0.71999 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.06199 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.06199 z m 1.949999,-1.31999 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4906"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.242889,181.58972 0,0.996 c 0,0.336 -0.132,0.438 -0.3,0.438 l -1.175999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 1.175999,0 c 0.168,0 0.3,0.102 0.3,0.438 l 0,0.996 -2.063999,0 c -0.156,0 -0.3,0.084 -0.3,0.29999 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 c 0.342,0 0.6,-0.258 0.6,-0.59999 l 0,-1.152 c 0,-0.24 -0.048,-0.414 -0.234,-0.582 0.186,-0.168 0.234,-0.342 0.234,-0.582 l 0,-1.152 c 0,-0.342 -0.258,-0.6 -0.6,-0.6 l -2.063999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4908"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-4"
+         transform="translate(0,-1.4939446)">
+        <path
+           d="m -43.931104,176.68799 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4901"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -38.706888,174.86399 0,-2.244 c 0,-0.15 -0.072,-0.3 -0.3,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,2.844 1.763999,0 0,1.224 c 0,0.192 0.084,0.3 0.3,0.3 0.216,0 0.3,-0.108 0.3,-0.3 l 0,-1.224 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l 0,-1.734 c 0,-0.15 -0.072,-0.3 -0.3,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,1.734 -1.163999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4903"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-5"
+         transform="translate(0,-1.2838617)">
+        <path
+           d="m -43.931104,162.07791 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.06199 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.06199 z m 1.949999,-1.31999 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4896"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -38.412888,158.30992 1.469999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.069999,0 0,2.634 1.769999,0 0,1.43399 -1.385999,0 c -0.096,0 -0.234,-0.084 -0.318,-0.12 l -0.18,-0.078 c -0.066,-0.03 -0.12,-0.048 -0.192,-0.048 -0.156,0 -0.288,0.144 -0.288,0.3 0,0.21 0.18,0.264 0.342,0.336 l 0.228,0.102 c 0.15,0.066 0.24,0.108 0.396,0.108 l 1.331999,0 c 0.216,0 0.372,-0.024 0.522,-0.204 0.126,-0.15 0.144,-0.282 0.144,-0.468 l 0,-1.28399 c 0,-0.21 -0.018,-0.354 -0.186,-0.51 -0.144,-0.138 -0.288,-0.168 -0.48,-0.168 l -1.103999,0 0,-1.434 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4898"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-1"
+         transform="translate(0,-0.27100817)">
+        <path
+           d="m -43.931104,146.66507 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4891"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -39.006888,142.89707 c 0.174,0 0.3,-0.12 0.3,-0.3 0,-0.156 -0.126,-0.3 -0.282,-0.3 l -0.36,0 c -0.21,0 -0.258,0.162 -0.258,0.3 l 0,3.99 c 0,0.276 0.108,0.378 0.39,0.378 l 2.183999,0 c 0.27,0 0.39,-0.096 0.39,-0.378 l 0,-1.344 c 0,-0.276 -0.06,-0.402 -0.36,-0.402 l -2.003999,0 0,-1.944 z m 1.763999,2.544 0,0.924 -1.763999,0 0,-0.924 1.763999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4893"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-93"
+         transform="translate(0,-0.86368367)">
+        <path
+           d="m -43.931104,132.85775 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4886"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.242889,129.08975 0,0.828 c 0,0.264 0.012,0.258 -0.186,0.432 l -0.827999,0.714 c -0.15,0.132 -0.156,0.15 -0.156,0.348 l 0,1.446 c 0,0.192 0.084,0.3 0.3,0.3 0.216,0 0.3,-0.108 0.3,-0.3 l 0,-1.164 c 0,-0.21 0.012,-0.222 0.167999,-0.36 l 0.84,-0.726 c 0.168,-0.144 0.162,-0.168 0.162,-0.378 l 0,-1.74 -2.663999,0 c -0.192,0 -0.3,0.168 -0.3,0.3 l 0,0.3 c 0,0.132 0.108,0.3 0.3,0.3 0.192,0 0.3,-0.168 0.3,-0.3 l 1.763999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4888"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-0"
+         transform="translate(0,1.1124751)">
+        <path
+           d="m -43.931104,116.4816 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4879"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.824888,116.1816 0,-4.068 -1.482,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.882,0 0,3.468 -0.882,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.581999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4881"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -34.682671,114.7476 1.691999,0 c 0.198,0 0.336,-0.03 0.486,-0.168 0.168,-0.156 0.186,-0.318 0.186,-0.534 l 0,-1.23 c 0,-0.216 -0.018,-0.378 -0.186,-0.534 -0.15,-0.138 -0.288,-0.168 -0.486,-0.168 l -1.991999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 0,1.434 -1.685999,0 c -0.45,0 -0.678,0.228 -0.678,0.678 l 0,1.956 2.663999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.063999,0 0,-1.434 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4883"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-3"
+         transform="translate(0,1.322558)">
+        <g
+           transform="translate(0,-3.1999984)"
+           id="g5383">
+          <path
+             inkscape:connector-curvature="0"
+             id="path4866"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             d="m -43.931104,101.87152 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062002 c -0.042,-0.155999 -0.114,-0.305999 -0.312,-0.305999 -0.192,0 -0.258,0.144 -0.306,0.305999 l -1.175999,4.062002 z m 1.949999,-1.32 -0.942,0 0.468,-1.626002 0.012,0 0.462,1.626002 z" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4868"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             d="m -37.824888,101.57152 0,-4.068001 -1.482,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.215999 0.144,0.299999 0.3,0.299999 l 0.882,0 0,3.468002 -0.882,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.581999,0 z" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4870"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             d="m -34.382671,100.04752 0,-2.244001 c 0,-0.15 -0.072,-0.3 -0.3,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,2.844001 1.763999,0 0,1.224 c 0,0.192 0.084,0.3 0.3,0.3 0.216,0 0.3,-0.108 0.3,-0.3 l 0,-1.224 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l 0,-1.734002 c 0,-0.15 -0.072,-0.3 -0.3,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,1.734002 -1.163999,0 z" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4872"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             d="m -28.060455,98.019518 c 0.036,-0.066 0.066,-0.138 0.066,-0.233999 0,-0.156 -0.138,-0.282 -0.294,-0.282 -0.15,0 -0.222,0.108 -0.294,0.228 l -2.243999,3.846001 c -0.06,0.096 -0.132,0.198 -0.132,0.312 0,0.156 0.15,0.282 0.3,0.282 0.15,0 0.222,-0.084 0.294,-0.21 l 2.303999,-3.942002 z" />
+        </g>
+        <g
+           transform="translate(-17.303586,3.1999984)"
+           id="g5389">
+          <path
+             inkscape:connector-curvature="0"
+             id="path4874"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             d="m -24.852238,101.57152 0,-4.068001 -1.481999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.215999 0.144,0.299999 0.3,0.299999 l 0.881999,0 0,3.468002 -0.881999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.299999,-0.084 0.299999,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.299999,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.582,0 z" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path4876"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             d="m -21.116021,98.103518 1.469999,0 c 0.156,0 0.3,-0.084 0.3,-0.299999 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.069999,0 0,2.634001 1.77,0 0,1.434 -1.386,0 c -0.096,0 -0.234,-0.084 -0.318,-0.12 l -0.179999,-0.078 c -0.066,-0.03 -0.12,-0.048 -0.192,-0.048 -0.156,0 -0.288,0.144 -0.288,0.3 0,0.21 0.18,0.264 0.342,0.336 l 0.227999,0.102 c 0.15,0.066 0.24,0.108 0.396,0.108 l 1.332,0 c 0.216,0 0.371999,-0.024 0.521999,-0.204 0.126,-0.15 0.144,-0.282 0.144,-0.468 l 0,-1.284 c 0,-0.21 -0.018,-0.354002 -0.186,-0.510002 -0.144,-0.138 -0.287999,-0.168 -0.479999,-0.168 l -1.104,0 0,-1.434 z" />
+        </g>
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-37"
+         transform="translate(0,1.0510005)">
+        <path
+           d="m -43.931104,87.743083 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.719999 1.278,0 0.221999,0.719999 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.061998 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.061998 z m 1.949999,-1.319999 -0.942,0 0.468,-1.625999 0.012,0 0.462,1.625999 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4859"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.824888,87.443083 0,-4.067998 -1.482,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.882,0 0,3.467998 -0.882,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.511999 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.211999 -0.581999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4861"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -34.682671,83.975085 c 0.174,0 0.3,-0.12 0.3,-0.3 0,-0.156 -0.126,-0.3 -0.282,-0.3 l -0.36,0 c -0.21,0 -0.258,0.162 -0.258,0.3 l 0,3.989998 c 0,0.276 0.108,0.378 0.39,0.378 l 2.183999,0 c 0.27,0 0.39,-0.096 0.39,-0.378 l 0,-1.343999 c 0,-0.276 -0.06,-0.402 -0.36,-0.402 l -2.003999,0 0,-1.943999 z m 1.763999,2.543999 0,0.923999 -1.763999,0 0,-0.923999 1.763999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4863"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="text4463-3-5-9-7"
+         transform="translate(0,1.1005548)">
+        <path
+           d="m -43.931104,73.293544 c -0.042,0.144 0.119999,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.061998 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.061998 z m 1.949999,-1.319999 -0.942,0 0.468,-1.625999 0.012,0 0.462,1.625999 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4852"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -37.824888,72.993544 0,-4.067998 -1.482,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.882,0 0,3.467998 -0.882,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.511999 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.211999 -0.581999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4854"
+           inkscape:connector-curvature="0" />
+        <path
+           d="m -34.082671,70.959545 0,-1.433999 0.563999,0 0,1.433999 -0.563999,0 z m -0.3,-2.033999 c -0.204,0 -0.3,0.144 -0.3,0.3 l 0,1.733999 c -0.186,0 -0.33,0.066 -0.438,0.168 -0.108,0.102 -0.162,0.252 -0.162,0.438 l 0,1.427999 c 0,0.366 0.228,0.6 0.6,0.6 l 1.763999,0 c 0.372,0 0.6,-0.234 0.6,-0.6 l 0,-1.427999 c 0,-0.186 -0.054,-0.336 -0.162,-0.438 -0.108,-0.102 -0.252,-0.168 -0.438,-0.168 l 0,-1.733999 c 0,-0.156 -0.096,-0.3 -0.3,-0.3 l -1.163999,0 z m -0.3,4.067998 0,-1.433999 1.763999,0 0,1.433999 -1.763999,0 z"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           id="path4856"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       transform="translate(-75.793485,0)"
+       id="g5227">
+      <g
+         transform="translate(84.615549,1.8157504)"
+         id="text4463-5-4"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5040"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 53.707028,288.27824 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.21599 0.144,0.29999 0.3,0.29999 l 0.996,0 c 0.467999,0 0.737999,-0.138 0.947999,-0.56399 l 0.546,-1.092 c 0.108,-0.216 0.174,-0.42 0.174,-0.66 0,-0.276 -0.06,-0.45 -0.18,-0.696 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.905999,-0.6 l -1.002,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.468 z m 0.6,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.455999,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.107999,0.222 -0.167999,0.252 -0.419999,0.252 l -0.114,0 0,-3.468 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5042"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 59.807244,284.81024 0,0.996 c 0,0.336 -0.132,0.438 -0.3,0.438 l -1.175999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 1.175999,0 c 0.168,0 0.3,0.102 0.3,0.438 l 0,0.996 -2.063999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.21599 0.144,0.29999 0.3,0.29999 l 2.063999,0 c 0.342,0 0.6,-0.258 0.6,-0.59999 l 0,-1.152 c 0,-0.24 -0.048,-0.414 -0.234,-0.582 0.186,-0.168 0.234,-0.342 0.234,-0.582 l 0,-1.152 c 0,-0.342 -0.258,-0.6 -0.6,-0.6 l -2.063999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 z" />
+      </g>
+      <g
+         transform="translate(82.799132,-1.685717)"
+         id="text4463-5-44"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5045"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 55.523446,277.37971 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.995999,0 c 0.468,0 0.738,-0.138 0.948,-0.564 l 0.546,-1.092 c 0.108,-0.216 0.174,-0.42 0.174,-0.66 0,-0.276 -0.06,-0.45 -0.18,-0.696 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.906,-0.6 l -1.001999,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.468 z m 0.599999,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.456,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.108,0.222 -0.168,0.252 -0.42,0.252 l -0.114,0 0,-3.468 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5047"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 60.159662,275.85571 0,-2.244 c 0,-0.15 -0.072,-0.3 -0.299999,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,2.844 1.763999,0 0,1.224 c 0,0.192 0.084,0.3 0.3,0.3 0.216,0 0.3,-0.108 0.3,-0.3 l 0,-1.224 c 0.155999,0 0.299999,-0.084 0.299999,-0.3 0,-0.216 -0.144,-0.3 -0.299999,-0.3 l 0,-1.734 c 0,-0.15 -0.072,-0.3 -0.3,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,1.734 -1.164,0 z" />
+      </g>
+      <g
+         transform="translate(81.663866,-2.462569)"
+         id="text4463-5-3"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5050"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 56.658711,263.75657 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.996,0 c 0.467999,0 0.737999,-0.138 0.947999,-0.564 l 0.546,-1.092 c 0.108,-0.216 0.174,-0.42 0.174,-0.66 0,-0.276 -0.06,-0.45 -0.18,-0.696 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.905999,-0.6 l -1.002,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.468 z m 0.6,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.455999,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.107999,0.222 -0.167999,0.252 -0.419999,0.252 l -0.114,0 0,-3.468 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5052"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 61.588928,260.28857 1.469999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.069999,0 0,2.634 1.769999,0 0,1.434 -1.385999,0 c -0.096,0 -0.234,-0.084 -0.318,-0.12 l -0.18,-0.078 c -0.066,-0.03 -0.12,-0.048 -0.192,-0.048 -0.156,0 -0.288,0.144 -0.288,0.3 0,0.21 0.18,0.264 0.342,0.336 l 0.228,0.102 c 0.15,0.066 0.24,0.108 0.396,0.108 l 1.331999,0 c 0.216,0 0.372,-0.024 0.522,-0.204 0.126,-0.15 0.144,-0.282 0.144,-0.468 l 0,-1.284 c 0,-0.21 -0.018,-0.354 -0.186,-0.51 -0.144,-0.138 -0.288,-0.168 -0.48,-0.168 l -1.103999,0 0,-1.434 z" />
+      </g>
+      <g
+         transform="translate(83.707339,0.84755209)"
+         id="text4463-5-9"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5055"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 54.615239,246.04645 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.995999,0 c 0.468,0 0.738,-0.138 0.948,-0.564 l 0.546,-1.092 c 0.108,-0.216 0.174,-0.42 0.174,-0.66 0,-0.27599 -0.06,-0.44999 -0.18,-0.69599 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.906,-0.6 l -1.001999,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.46799 z m 0.599999,-3.46799 0.072,0 c 0.276,0 0.33,-0.006 0.456,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.49199 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.108,0.222 -0.168,0.252 -0.42,0.252 l -0.114,0 0,-3.46799 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5057"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 58.951456,242.57846 c 0.173999,0 0.299999,-0.12 0.299999,-0.3 0,-0.156 -0.126,-0.3 -0.281999,-0.3 l -0.36,0 c -0.21,0 -0.258,0.162 -0.258,0.3 l 0,3.98999 c 0,0.276 0.108,0.378 0.39,0.378 l 2.183999,0 c 0.27,0 0.389999,-0.096 0.389999,-0.378 l 0,-1.344 c 0,-0.276 -0.06,-0.402 -0.359999,-0.402 l -2.003999,0 0,-1.94399 z m 1.763999,2.54399 0,0.924 -1.763999,0 0,-0.924 1.763999,0 z" />
+      </g>
+      <g
+         transform="translate(81.663839,-1.972753)"
+         id="text4463-5-1"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5060"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 56.658711,234.46677 -0.288,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.996,0 c 0.467999,0 0.737999,-0.138 0.947999,-0.564 l 0.546,-1.092 c 0.108,-0.216 0.174,-0.42 0.174,-0.66 0,-0.276 -0.06,-0.45 -0.18,-0.696 l -0.528,-1.056 c -0.204,-0.408 -0.438,-0.6 -0.905999,-0.6 l -1.002,0 c -0.186,0 -0.348,0.084 -0.348,0.3 0,0.228 0.168,0.3 0.366,0.3 l 0.222,0 0,3.468 z m 0.6,-3.468 0.072,0 c 0.276,0 0.33,-0.006 0.455999,0.252 l 0.498,1.014 c 0.084,0.174 0.15,0.288 0.15,0.492 0,0.15 -0.048,0.252 -0.114,0.39 l -0.528,1.068 c -0.107999,0.222 -0.167999,0.252 -0.419999,0.252 l -0.114,0 0,-3.468 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5062"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 62.758927,230.99877 0,0.828 c 0,0.264 0.012,0.258 -0.186,0.432 l -0.827999,0.714 c -0.15,0.132 -0.156,0.15 -0.156,0.348 l 0,1.446 c 0,0.192 0.084,0.3 0.299999,0.3 0.216,0 0.3,-0.108 0.3,-0.3 l 0,-1.164 c 0,-0.21 0.012,-0.222 0.168,-0.36 l 0.84,-0.726 c 0.168,-0.144 0.162,-0.168 0.162,-0.378 l 0,-1.74 -2.663999,0 c -0.192,0 -0.3,0.168 -0.3,0.3 l 0,0.3 c 0,0.132 0.108,0.3 0.3,0.3 0.192,0 0.3,-0.168 0.3,-0.3 l 1.763999,0 z" />
+      </g>
+      <g
+         transform="translate(82.117972,-1.1602289)"
+         id="text4463-5-8"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5065"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 58.280605,219.85425 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -0.978,0 c -0.27,0 -0.33,-0.018 -0.45,-0.264 l -0.509999,-1.038 c -0.072,-0.144 -0.126,-0.246 -0.126,-0.414 0,-0.186 0.048,-0.294 0.126,-0.456 l 0.521999,-1.044 c 0.114,-0.228 0.156,-0.252 0.414,-0.252 l 1.002,0 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -1.02,0 c -0.462,0 -0.72,0.162 -0.923999,0.576 l -0.552,1.11 c -0.12,0.24 -0.168,0.402 -0.168,0.666 0,0.234 0.06,0.426 0.162,0.63 l 0.552,1.116 c 0.192,0.39 0.449999,0.57 0.899999,0.57 l 1.05,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5067"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 60.540822,219.25425 0,-1.434 0.882,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -0.882,0 0,-1.434 2.064,0 c 0.155999,0 0.299999,-0.084 0.299999,-0.3 0,-0.216 -0.144,-0.3 -0.299999,-0.3 l -2.663999,0 0,4.668 2.663999,0 c 0.155999,0 0.299999,-0.084 0.299999,-0.3 0,-0.216 -0.144,-0.3 -0.299999,-0.3 l -2.064,0 z" />
+      </g>
+      <g
+         transform="translate(78.24786,0.56050999)"
+         id="text4463-5-0"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5070"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 55.162501,203.43352 c -0.042,0.144 0.12,0.3 0.287999,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.278,0 0.221999,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5072"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 61.268717,203.13352 0,-4.068 -1.482,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.882,0 0,3.468 -0.882,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.581999,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5074"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 64.410934,199.06552 c -0.33,0 -0.6,0.27 -0.6,0.6 l 0,3.468 c 0,0.336 0.258,0.6 0.6,0.6 l 1.763999,0 c 0.342,0 0.6,-0.264 0.6,-0.6 l 0,-3.468 c 0,-0.33 -0.27,-0.6 -0.6,-0.6 l -1.763999,0 z m 0,4.068 0,-3.468 1.763999,0 0,3.468 -1.763999,0 z" />
+      </g>
+      <g
+         transform="translate(82.345026,0.91892046)"
+         id="text4463-5-7"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5077"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 57.59755,184.79911 c -0.144,-0.28199 -0.39,-0.49199 -0.725999,-0.49199 -0.336,0 -0.582,0.21 -0.726,0.49199 l -0.6,1.194 c -0.114,0.234 -0.156,0.408 -0.156,0.666 0,0.288 0.078,0.468 0.198,0.714 l 0.552,1.104 c 0.144,0.288 0.384,0.498 0.732,0.498 0.347999,0 0.587999,-0.21 0.731999,-0.498 l 0.552,-1.104 c 0.12,-0.246 0.198,-0.426 0.198,-0.714 0,-0.258 -0.042,-0.432 -0.156,-0.666 l -0.6,-1.194 z m 0.018,1.374 c 0.09,0.174 0.138,0.288 0.138,0.486 0,0.156 -0.036,0.264 -0.102,0.396 l -0.575999,1.14 c -0.042,0.084 -0.084,0.18 -0.204,0.18 -0.12,0 -0.162,-0.096 -0.204,-0.18 l -0.576,-1.14 c -0.066,-0.132 -0.102,-0.24 -0.102,-0.396 0,-0.198 0.048,-0.312 0.138,-0.486 l 0.54,-1.086 c 0.048,-0.096 0.078,-0.18 0.204,-0.18 0.126,0 0.156,0.084 0.204,0.18 l 0.539999,1.086 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5079"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 60.313768,188.37511 0,-1.434 0.881999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -0.881999,0 0,-1.434 2.063999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.21599 -0.144,-0.29999 -0.3,-0.29999 l -2.663999,0 0,4.66799 2.663999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.063999,0 z" />
+      </g>
+      <g
+         transform="translate(66.18342,0.14208978)"
+         id="text4463-5-77"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5082"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 56.558289,175.35196 c 0.21,0 0.264,-0.036 0.366,-0.216 l 0.209999,-0.366 c 0.078,-0.132 0.084,-0.144 0.084,-0.306 l 0,-3.48 c 0,-0.192 -0.084,-0.3 -0.299999,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,3.48 -0.162,0.288 -0.258,0 -0.162,-0.288 0,-1.89 c 0,-0.186 -0.084,-0.354 -0.3,-0.354 -0.216,0 -0.3,0.168 -0.3,0.354 l 0,1.89 -0.162,0.288 -0.258,0 -0.161999,-0.288 0,-3.48 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,3.48 c 0,0.162 0.006,0.174 0.084,0.306 l 0.21,0.366 c 0.102,0.18 0.156,0.216 0.365999,0.216 l 0.45,0 c 0.204,0 0.324,-0.042 0.366,-0.258 l 0.012,0 c 0.042,0.216 0.162,0.258 0.366,0.258 l 0.45,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5084"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 59.178506,174.75196 0,-1.434 0.882,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -0.882,0 0,-1.434 2.063999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.663998,0 0,4.668 2.663998,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.063999,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5086"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 65.800722,171.19996 c 0.036,-0.066 0.066,-0.138 0.066,-0.234 0,-0.156 -0.138,-0.282 -0.294,-0.282 -0.15,0 -0.222,0.108 -0.294,0.228 l -2.243999,3.846 c -0.06,0.096 -0.132,0.198 -0.132,0.312 0,0.156 0.15,0.282 0.3,0.282 0.15,0 0.222,-0.084 0.294,-0.21 l 2.303999,-3.942 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5088"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 67.22694,175.05196 c -0.042,0.144 0.12,0.3 0.288,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.277999,0 0.222,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.158,-4.062 c -0.042,-0.156 -0.113999,-0.306 -0.311999,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.176,4.062 z m 1.949999,-1.32 -0.941999,0 0.468,-1.626 0.012,0 0.461999,1.626 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5090"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 73.333156,174.75196 0,-4.068 -1.481999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.882,0 0,3.468 -0.882,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.582,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5092"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 77.657373,174.75196 0,-4.068 -1.481999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.881999,0 0,3.468 -0.881999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.582,0 z" />
+      </g>
+      <g
+         transform="translate(85.977865,0.72756313)"
+         id="text4463-5-96"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5095"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 51.756712,160.06649 c -0.042,0.144 0.12,0.3 0.288,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.277999,0 0.222,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.158,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.191999,0 -0.257999,0.144 -0.305999,0.306 l -1.176,4.062 z m 1.949999,-1.32 -0.941999,0 0.467999,-1.626 0.012,0 0.462,1.626 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5097"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 58.444928,159.76649 c -0.174,0 -0.3,0.12 -0.3,0.3 0,0.162 0.12,0.3 0.3,0.3 l 0.3,0 c 0.18,0 0.3,-0.138 0.3,-0.3 l 0,-4.068 c 0,-0.156 -0.132,-0.3 -0.3,-0.3 l -2.363999,0 c -0.168,0 -0.3,0.144 -0.3,0.3 l 0,1.536 c 0,0.156 0.132,0.3 0.3,0.3 l 2.063999,0 0,1.932 z m -1.763999,-2.532 0,-0.936 1.763999,0 0,0.936 -1.763999,0 z" />
+      </g>
+      <g
+         transform="translate(84.161444,1.0859736)"
+         id="text4463-5-2"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5100"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 53.573134,145.30808 c -0.042,0.144 0.12,0.3 0.288,0.3 0.185999,0 0.281999,-0.156 0.323999,-0.3 l 0.228,-0.72 1.278,0 0.222,0.72 c 0.042,0.144 0.137999,0.3 0.323999,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5102"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 59.09735,142.97408 0,-1.434 0.564,0 0,1.434 -0.564,0 z m -0.3,-2.034 c -0.204,0 -0.3,0.144 -0.3,0.3 l 0,1.734 c -0.186,0 -0.33,0.066 -0.438,0.168 -0.108,0.102 -0.162,0.252 -0.162,0.438 l 0,1.428 c 0,0.366 0.228,0.6 0.6,0.6 l 1.763999,0 c 0.372,0 0.6,-0.234 0.6,-0.6 l 0,-1.428 c 0,-0.186 -0.054,-0.336 -0.162,-0.438 -0.108,-0.102 -0.252,-0.168 -0.438,-0.168 l 0,-1.734 c 0,-0.156 -0.096,-0.3 -0.299999,-0.3 l -1.164,0 z m -0.3,4.068 0,-1.434 1.763999,0 0,1.434 -1.763999,0 z" />
+      </g>
+      <g
+         transform="translate(63.22152,-0.82611046)"
+         id="text4463-5-6"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <g
+           transform="translate(12.97265,-3.1999984)"
+           id="g5372">
+          <path
+             d="m 54.373973,132.00418 -0.882,-2.292 0,-0.96 c 0,-0.192 -0.084,-0.3 -0.299999,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,0.948 c 0,0.078 0.006,0.162 0.036,0.234 l 1.145999,2.922 c 0.06,0.15 0.114,0.264 0.3,0.264 0.186,0 0.24,-0.114 0.3,-0.264 l 1.145999,-2.922 c 0.03,-0.072 0.036,-0.156 0.036,-0.234 l 0,-0.948 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.215999,0 -0.299999,0.108 -0.299999,0.3 l 0,0.96 -0.882,2.292 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5105"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 59.880189,133.12018 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -0.977999,0 c -0.27,0 -0.33,-0.018 -0.45,-0.264 l -0.51,-1.038 c -0.072,-0.144 -0.126,-0.246 -0.126,-0.414 0,-0.186 0.048,-0.294 0.126,-0.456 l 0.522,-1.044 c 0.114,-0.228 0.156,-0.252 0.414,-0.252 l 1.001999,0 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -1.019999,0 c -0.462,0 -0.72,0.162 -0.924,0.576 l -0.552,1.11 c -0.12,0.24 -0.167999,0.402 -0.167999,0.666 0,0.234 0.06,0.426 0.161999,0.63 l 0.552,1.116 c 0.192,0.39 0.45,0.57 0.9,0.57 l 1.049999,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5107"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 64.204406,133.12018 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -0.977999,0 c -0.27,0 -0.33,-0.018 -0.45,-0.264 l -0.51,-1.038 c -0.072,-0.144 -0.126,-0.246 -0.126,-0.414 0,-0.186 0.048,-0.294 0.126,-0.456 l 0.522,-1.044 c 0.114,-0.228 0.156,-0.252 0.414,-0.252 l 1.001999,0 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -1.019999,0 c -0.462,0 -0.72,0.162 -0.924,0.576 l -0.552,1.11 c -0.12,0.24 -0.168,0.402 -0.168,0.666 0,0.234 0.06,0.426 0.162,0.63 l 0.552,1.116 c 0.192,0.39 0.45,0.57 0.9,0.57 l 1.049999,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5109"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 68.762623,128.96818 c 0.036,-0.066 0.066,-0.138 0.066,-0.234 0,-0.156 -0.138,-0.282 -0.294,-0.282 -0.15,0 -0.222,0.108 -0.294,0.228 l -2.243999,3.846 c -0.06,0.096 -0.132,0.198 -0.132,0.312 0,0.156 0.15,0.282 0.3,0.282 0.15,0 0.222,-0.084 0.294,-0.21 l 2.303999,-3.942 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5111"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           transform="translate(0,3.1999984)"
+           id="g5367">
+          <path
+             d="m 70.188841,132.82018 c -0.042,0.144 0.12,0.3 0.288,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.228,-0.72 1.277999,0 0.222,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.158,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.941999,0 0.467999,-1.626 0.012,0 0.462,1.626 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5113"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 76.295057,132.52018 0,-4.068 -1.481999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.881999,0 0,3.468 -0.881999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363999,0 c 0.156,0 0.299999,-0.084 0.299999,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.299999,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.582,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5115"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 81.201274,129.05218 0,0.996 c 0,0.336 -0.132,0.438 -0.3,0.438 l -1.176,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 1.176,0 c 0.168,0 0.3,0.102 0.3,0.438 l 0,0.996 -2.063999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 c 0.341999,0 0.599999,-0.258 0.599999,-0.6 l 0,-1.152 c 0,-0.24 -0.048,-0.414 -0.234,-0.582 0.186,-0.168 0.234,-0.342 0.234,-0.582 l 0,-1.152 c 0,-0.342 -0.258,-0.6 -0.599999,-0.6 l -2.063999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.063999,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5117"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         transform="translate(70.270365,2.0298818)"
+         id="text4463-5-5"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5120"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 52.471344,115.86419 c 0.21,0 0.264,-0.036 0.366,-0.216 l 0.21,-0.366 c 0.078,-0.132 0.084,-0.144 0.084,-0.306 l 0,-3.48 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,3.48 -0.162,0.288 -0.258,0 -0.162,-0.288 0,-1.89 c 0,-0.186 -0.084,-0.354 -0.299999,-0.354 -0.216,0 -0.3,0.168 -0.3,0.354 l 0,1.89 -0.162,0.288 -0.258,0 -0.162,-0.288 0,-3.48 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,3.48 c 0,0.162 0.006,0.174 0.084,0.306 l 0.21,0.366 c 0.102,0.18 0.156,0.216 0.366,0.216 l 0.45,0 c 0.204,0 0.324,-0.042 0.366,-0.258 l 0.012,0 c 0.042,0.216 0.161999,0.258 0.365999,0.258 l 0.45,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5122"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 55.091562,115.26419 0,-1.434 0.881999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -0.881999,0 0,-1.434 2.063999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.663999,0 0,4.668 2.663999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.063999,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5124"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 61.713778,111.71219 c 0.036,-0.066 0.066,-0.138 0.066,-0.234 0,-0.156 -0.137999,-0.282 -0.293999,-0.282 -0.15,0 -0.222,0.108 -0.294,0.228 l -2.243999,3.846 c -0.06,0.096 -0.132,0.198 -0.132,0.312 0,0.156 0.15,0.282 0.3,0.282 0.15,0 0.222,-0.084 0.294,-0.21 l 2.303999,-3.942 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5126"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 63.139996,115.56419 c -0.042,0.144 0.12,0.3 0.288,0.3 0.186,0 0.281999,-0.156 0.323999,-0.3 l 0.228,-0.72 1.278,0 0.222,0.72 c 0.042,0.144 0.138,0.3 0.323999,0.3 0.168,0 0.33,-0.156 0.288,-0.3 l -1.157999,-4.062 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.062 z m 1.949999,-1.32 -0.942,0 0.468,-1.626 0.012,0 0.462,1.626 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5128"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 69.246212,115.26419 0,-4.068 -1.482,0 c -0.155999,0 -0.299999,0.084 -0.299999,0.3 0,0.216 0.144,0.3 0.299999,0.3 l 0.882,0 0,3.468 -0.882,0 c -0.155999,0 -0.299999,0.084 -0.299999,0.3 0,0.216 0.144,0.3 0.299999,0.3 l 2.363999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.3,0.126 -0.3,0.3 l 0,1.212 -0.581999,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5130"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 72.688429,113.74019 0,-2.244 c 0,-0.15 -0.072,-0.3 -0.3,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,2.844 1.763999,0 0,1.224 c 0,0.192 0.084,0.3 0.3,0.3 0.216,0 0.3,-0.108 0.3,-0.3 l 0,-1.224 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l 0,-1.734 c 0,-0.15 -0.072,-0.3 -0.3,-0.3 -0.228,0 -0.3,0.15 -0.3,0.3 l 0,1.734 -1.163999,0 z" />
+      </g>
+      <g
+         transform="translate(62.313282,1.253039)"
+         id="text4463-5-36"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <g
+           transform="translate(12.972677,-3.1999984)"
+           id="g5302">
+          <path
+             d="m 55.282184,101.12504 -0.882,-2.291995 0,-0.96 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,0.948 c 0,0.078 0.006,0.162 0.036,0.234 l 1.146,2.921995 c 0.06,0.15 0.114,0.264 0.3,0.264 0.186,0 0.24,-0.114 0.3,-0.264 l 1.145999,-2.921995 c 0.03,-0.072 0.036,-0.156 0.036,-0.234 l 0,-0.948 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,0.96 -0.881999,2.291995 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5133"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 60.7884,102.24104 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -0.978,0 c -0.269999,0 -0.329999,-0.018 -0.449999,-0.264 l -0.51,-1.038 c -0.072,-0.144 -0.126,-0.246 -0.126,-0.413996 0,-0.186 0.048,-0.294 0.126,-0.456 l 0.522,-1.043999 c 0.114,-0.228 0.156,-0.252 0.413999,-0.252 l 1.002,0 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -1.02,0 c -0.461999,0 -0.719999,0.162 -0.923999,0.576 l -0.552,1.11 c -0.12,0.239999 -0.168,0.401999 -0.168,0.665999 0,0.233996 0.06,0.425996 0.162,0.629996 l 0.552,1.116 c 0.192,0.39 0.45,0.57 0.9,0.57 l 1.049999,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5135"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 65.112617,102.24104 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -0.978,0 c -0.27,0 -0.33,-0.018 -0.449999,-0.264 l -0.51,-1.038 c -0.072,-0.144 -0.126,-0.246 -0.126,-0.413996 0,-0.186 0.048,-0.294 0.126,-0.456 l 0.522,-1.043999 c 0.113999,-0.228 0.155999,-0.252 0.413999,-0.252 l 1.002,0 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -1.02,0 c -0.461999,0 -0.719999,0.162 -0.923999,0.576 l -0.552,1.11 c -0.12,0.239999 -0.168,0.401999 -0.168,0.665999 0,0.233996 0.06,0.425996 0.162,0.629996 l 0.552,1.116 c 0.192,0.39 0.45,0.57 0.899999,0.57 l 1.05,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5137"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 69.670834,98.089045 c 0.036,-0.066 0.066,-0.138 0.066,-0.234 0,-0.156 -0.138,-0.282 -0.294,-0.282 -0.15,0 -0.222,0.108 -0.294,0.228 l -2.243999,3.845995 c -0.06,0.096 -0.132,0.198 -0.132,0.312 0,0.156 0.15,0.282 0.3,0.282 0.15,0 0.222,-0.084 0.294,-0.21 l 2.303999,-3.941995 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5139"
+             inkscape:connector-curvature="0" />
+        </g>
+        <g
+           transform="translate(0,3.1999984)"
+           id="g5297">
+          <path
+             d="m 71.097052,101.94104 c -0.042,0.144 0.12,0.3 0.288,0.3 0.186,0 0.282,-0.156 0.324,-0.3 l 0.227999,-0.72 1.278,0 0.222,0.72 c 0.042,0.144 0.138,0.3 0.324,0.3 0.167999,0 0.329999,-0.156 0.287999,-0.3 l -1.157999,-4.061995 c -0.042,-0.156 -0.114,-0.306 -0.312,-0.306 -0.192,0 -0.258,0.144 -0.306,0.306 l -1.175999,4.061995 z m 1.949999,-1.32 -0.942,0 0.468,-1.625995 0.012,0 0.462,1.625995 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5141"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 77.203268,101.64104 0,-4.067995 -1.481999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 0.881999,0 0,3.467995 -0.881999,0 c -0.156,0 -0.3,0.084 -0.3,0.3 0,0.216 0.144,0.3 0.3,0.3 l 2.363998,0 c 0.156,0 0.3,-0.084 0.3,-0.3 l 0,-1.512 c 0,-0.174 -0.078,-0.3 -0.3,-0.3 -0.222,0 -0.299999,0.126 -0.299999,0.3 l 0,1.212 -0.582,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5143"
+             inkscape:connector-curvature="0" />
+          <path
+             d="m 82.109484,98.173045 0,0.828 c 0,0.264 0.012,0.258 -0.186,0.431999 l -0.827999,0.713996 c -0.15,0.132 -0.156,0.15 -0.156,0.348 l 0,1.446 c 0,0.192 0.084,0.3 0.3,0.3 0.216,0 0.3,-0.108 0.3,-0.3 l 0,-1.164 c 0,-0.21 0.012,-0.222 0.168,-0.36 l 0.839999,-0.725996 c 0.168,-0.144 0.162,-0.168 0.162,-0.378 l 0,-1.739999 -2.663999,0 c -0.192,0 -0.3,0.168 -0.3,0.3 l 0,0.3 c 0,0.132 0.108,0.3 0.3,0.3 0.192,0 0.3,-0.168 0.3,-0.3 l 1.763999,0 z"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+             id="path5145"
+             inkscape:connector-curvature="0" />
+        </g>
+      </g>
+      <g
+         transform="translate(78.031027,-1.5672844)"
+         id="text4463-5-61"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5148"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 62.007549,90.661362 c 0.21,0 0.264,-0.036 0.366,-0.216 l 0.21,-0.366 c 0.078,-0.132 0.084,-0.144 0.084,-0.306 l 0,-3.479998 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,3.479998 -0.162,0.288 -0.257999,0 -0.162,-0.288 0,-1.889999 c 0,-0.186 -0.084,-0.354 -0.3,-0.354 -0.216,0 -0.3,0.168 -0.3,0.354 l 0,1.889999 -0.162,0.288 -0.258,0 -0.162,-0.288 0,-3.479998 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.299999,0.108 -0.299999,0.3 l 0,3.479998 c 0,0.162 0.006,0.174 0.084,0.306 l 0.21,0.366 c 0.102,0.18 0.156,0.216 0.366,0.216 l 0.45,0 c 0.204,0 0.324,-0.042 0.366,-0.258 l 0.012,0 c 0.042,0.216 0.162,0.258 0.366,0.258 l 0.449999,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5150"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 64.627767,90.061362 0,-1.433999 0.882,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -0.882,0 0,-1.433999 2.063999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.663999,0 0,4.667998 2.663999,0 c 0.156,0 0.3,-0.084 0.3,-0.3 0,-0.216 -0.144,-0.3 -0.3,-0.3 l -2.063999,0 z" />
+      </g>
+      <g
+         id="text4463-5-63"
+         style="font-style:normal;font-weight:normal;font-size:31.99998474px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         transform="translate(81.880699,2.6510458)">
+        <path
+           inkscape:connector-curvature="0"
+           id="path5153"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 53.011661,70.927053 -0.882,-2.291999 0,-0.959999 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,0.947999 c 0,0.078 0.006,0.162 0.036,0.234 l 1.146,2.921999 c 0.06,0.15 0.114,0.264 0.3,0.264 0.186,0 0.24,-0.114 0.3,-0.264 l 1.145999,-2.921999 c 0.03,-0.072 0.036,-0.156 0.036,-0.234 l 0,-0.947999 c 0,-0.192 -0.084,-0.3 -0.3,-0.3 -0.216,0 -0.3,0.108 -0.3,0.3 l 0,0.959999 -0.881999,2.291999 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5155"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 58.517877,72.043053 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -0.978,0 c -0.269999,0 -0.329999,-0.018 -0.449999,-0.264 l -0.51,-1.037999 c -0.072,-0.144 -0.126,-0.246 -0.126,-0.414 0,-0.186 0.048,-0.294 0.126,-0.456 l 0.522,-1.044 c 0.114,-0.227999 0.156,-0.251999 0.413999,-0.251999 l 1.002,0 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -1.02,0 c -0.461999,0 -0.719999,0.162 -0.923999,0.576 l -0.552,1.109999 c -0.12,0.24 -0.168,0.402 -0.168,0.666 0,0.234 0.06,0.426 0.162,0.629999 l 0.552,1.116 c 0.192,0.39 0.45,0.57 0.899999,0.57 l 1.05,0 z" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path5157"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.99999714px;font-family:'OCR A Std';-inkscape-font-specification:'OCR A Std'"
+           d="m 62.842094,72.043053 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -0.978,0 c -0.27,0 -0.33,-0.018 -0.45,-0.264 l -0.509999,-1.037999 c -0.072,-0.144 -0.126,-0.246 -0.126,-0.414 0,-0.186 0.048,-0.294 0.126,-0.456 l 0.521999,-1.044 c 0.114,-0.227999 0.156,-0.251999 0.414,-0.251999 l 1.002,0 c 0.138,0 0.3,-0.084 0.3,-0.3 0,-0.228 -0.168,-0.3 -0.3,-0.3 l -1.02,0 c -0.462,0 -0.719999,0.162 -0.923999,0.576 l -0.552,1.109999 c -0.12,0.24 -0.168,0.402 -0.168,0.666 0,0.234 0.06,0.426 0.162,0.629999 l 0.552,1.116 c 0.192,0.39 0.449999,0.57 0.899999,0.57 l 1.05,0 z" />
+      </g>
+    </g>
+  </g>
+</svg>

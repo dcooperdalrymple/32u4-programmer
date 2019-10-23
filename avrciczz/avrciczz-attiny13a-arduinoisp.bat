@@ -1,0 +1,1 @@
+avrdude.exe -Cavrdude.conf -v -pattiny13 -carduino -PCOM6 -b19200 -Uflash:w:avrciczz.hex:i
