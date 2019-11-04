@@ -49,10 +49,15 @@ class AppView():
         with wx.MessageDialog(self.frame, message, title, wx.OK | wx.ICON_ERROR) as dialog:
             dialog.ShowModal()
 
-    def Log(self, message, color = (108, 117, 125)):
+    def _log(self, message, color = (108, 117, 125)):
         start = len(self.frame.log.GetValue())
-        self.frame.log.AppendText(message + '\n')
+        self.frame.log.AppendText(message)
         self.frame.log.SetStyle(start, len(self.frame.log.GetValue()), wx.TextAttr(color))
+        return True
+
+    def Log(self, message, color = (108, 117, 125)):
+        # Use CallAfter to prevent multithreading issues
+        wx.CallAfter(self._log, message + '\n', color)
         return True
 
     def LogError(self, message, title = "Error"):
