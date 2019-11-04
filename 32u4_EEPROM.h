@@ -1,7 +1,7 @@
 /**
  * File: 32u4_EEPROM.h
  * Created: 19/10/2019
- * Updated: 19/10/2019
+ * Updated: 01/11/2019
  */
 
 #ifndef H_32U4_EEPROM
@@ -11,30 +11,31 @@
 
 // Shift Registers
 
-#define DATA        A5
-#define LATCH       A4
-#define CLOCK       A3
+#define DATA        A2
+#define LATCH       A1
+#define CLOCK       A0
 
 // EEPROM
 
-#define D0          1
-#define D1          2
-#define D2          3
-#define D3          5
-#define D4          7
-#define D5          9
-#define D6          10
-#define D7          12
+#define D0          0
+#define D1          1
+#define D2          2
+#define D3          3
+#define D4          5
+#define D5          7
+#define D6          9
+#define D7          10
 
-#define CE          A2
-#define OE          A1
-#define WE          A0
+#define CE          A3
+#define OE          A4
+#define WE          A5
 
 // Function Definitions
 
 void setupEEPROM();
 
 void set_address_bus(uint16_t address);
+void write_data_bus(uint8_t data);
 
 uint8_t read_byte(uint16_t address);
 void write_byte(uint16_t address, uint8_t data);

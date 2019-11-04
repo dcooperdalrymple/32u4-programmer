@@ -1,7 +1,7 @@
 /**
  * File: 32u4_EEPROM.cpp
  * Created: 19/10/2019
- * Updated: 19/10/2019
+ * Updated: 01/11/2019
  */
 
 #include "32u4_EEPROM.h"
@@ -28,14 +28,6 @@ void data_bus_input() {
   pinMode(D5, INPUT);
   pinMode(D6, INPUT);
   pinMode(D7, INPUT);
-  digitalWrite(D0, HIGH);
-  digitalWrite(D1, HIGH);
-  digitalWrite(D2, HIGH);
-  digitalWrite(D3, HIGH);
-  digitalWrite(D4, HIGH);
-  digitalWrite(D5, HIGH);
-  digitalWrite(D6, HIGH);
-  digitalWrite(D7, HIGH);
 }
 
 void data_bus_output() {
@@ -72,12 +64,14 @@ void write_data_bus(uint8_t data) {
 }
 
 void set_address_bus(uint16_t address) {
-  uint8_t hi = ((address >> 7) & 0x0F) << 1;
-  uint8_t lo = (address & 0x7F) << 1;
+  uint8_t hi = address >> 8;
+  uint8_t lo = address & 0xff;
 
   digitalWrite(LATCH, LOW);
-  shiftOut(DATA, CLOCK, MSBFIRST, lo);
-  shiftOut(DATA, CLOCK, MSBFIRST, hi);
+  
+  shiftOut(DATA, CLOCK, LSBFIRST, lo);
+  shiftOut(DATA, CLOCK, LSBFIRST, hi);
+
   digitalWrite(LATCH, HIGH);
 }
 
@@ -106,6 +100,7 @@ uint8_t read_byte(uint16_t address) {
   set_address_bus(address); // Set Address
   
   set_oe(LOW); // Enable Output
+  delayMicroseconds(2);
   uint8_t data = read_data_bus();
   set_oe(HIGH); // Disable Output
 
@@ -132,12 +127,12 @@ void write_byte(uint16_t address, uint8_t data) {
   // Wait until data is correct
   data_bus_input();
   set_oe(LOW); // Enable Output
-  while (data != read_data_bus()) {
-    Serial.println(read_data_bus());
-  }
+  while (data != read_data_bus()) { }
 
   set_oe(HIGH); // Disable Output
   set_ce(HIGH); // Disable Chip Select
+
+  delay(1);
 }
 
 // Input / Output

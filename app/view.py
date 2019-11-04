@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
+import threading
 import wx
 import wx.adv
 import os
+import re
 
 ABSPATH = os.path.dirname(os.path.abspath(__file__))
 if ABSPATH.endswith('app'):
@@ -12,15 +14,23 @@ class AppView():
 
     def __init__(self, controller):
         self.controller = controller
-
         self.app = wx.App(False)
 
-        frameStyle = wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN;
-        self.frame = AppFrame(controller, None, -1, title = '32u4 Programmer Utility', size = (480, 360), style = frameStyle)
+        self.frameStyle = wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN;
 
     def run(self):
+        self.frame = AppFrame(self, self.controller, None, -1, title = '32u4 Programmer Utility', size = (480, 360), style = self.frameStyle)
         self.frame.Show()
+        wx.CallAfter(self.OnLoad)
+
         self.app.MainLoop()
+
+    def OnLoad(self):
+        self.refresh()
+
+    def refresh(self):
+        thread = threading.Thread(target=self.frame.refresh)
+        thread.start()
 
     def update(self):
         return
@@ -29,23 +39,43 @@ class AppView():
         return
 
     def destroy(self):
-        self.frame.Close()
+        self.frame.Destroy()
 
-    def ShowError(self, message, title="Error"):
-        with wx.MessageDialog(self, message, title, wx.OK | wx.ICON_ERROR) as dialog:
+    def ShowErrorDialog(self, message, title="Error"):
+        with wx.MessageDialog(self.frame, message, title, wx.OK | wx.ICON_ERROR) as dialog:
             dialog.ShowModal()
+
+    def Log(self, message, color = (108, 117, 125)):
+        start = len(self.frame.log.GetValue())
+        self.frame.log.AppendText(message + '\n')
+        self.frame.log.SetStyle(start, len(self.frame.log.GetValue()), wx.TextAttr(color))
+        return True
+
+    def LogError(self, message, title = "Error"):
+        return self.Log(title + ": " + message, (220, 53, 69))
+
+    def LogWarning(self, message, title = "Warning"):
+        return self.Log(title + ": " + message, (255, 193, 7))
+
+    def LogSuccess(self, message):
+        return self.Log(message, (40, 167, 69))
 
 class AppFrame(wx.Frame):
 
-    def __init__(self, controller, *args, **kw):
+    def __init__(self, view, controller, *args, **kw):
         super(AppFrame, self).__init__(*args, **kw)
+
+        self.view = view
         self.controller = controller
 
         self.SetMinSize(self.GetSize())
 
         self.panel = wx.Panel(self)
 
+        self.sizer = wx.BoxSizer(wx.VERTICAL)
         self.createPanels()
+        self.createLog()
+        self.panel.SetSizer(self.sizer)
 
         self.createMenuBar()
 
@@ -54,18 +84,22 @@ class AppFrame(wx.Frame):
 
         self.Centre()
 
+        self.Bind(wx.EVT_CLOSE, self.OnClose)
+
     def createPanels(self):
         self.notebook = wx.Notebook(self.panel)
 
-        self.eepromPanel = EepromPanel(self.notebook, self.controller)
+        self.eepromPanel = EepromPanel(self.notebook, self.view, self.controller)
         self.microPanel = MicroPanel(self.notebook, self.controller)
 
         self.notebook.AddPage(self.eepromPanel, self.eepromPanel.getTitle())
         self.notebook.AddPage(self.microPanel, self.microPanel.getTitle())
 
-        sizer = wx.BoxSizer()
-        sizer.Add(self.notebook, 1, wx.EXPAND)
-        self.panel.SetSizer(sizer)
+        self.sizer.Add(self.notebook, 1, wx.EXPAND)
+
+    def createLog(self):
+        self.log = wx.TextCtrl(self.panel, size = (-1, 17 * 4), value = "", style = wx.TE_MULTILINE | wx.TE_RICH | wx.TE_READONLY | wx.TE_LEFT | wx.TE_BESTWRAP)
+        self.sizer.Add(self.log, 0, wx.EXPAND)
 
     def createMenuBar(self):
         fileMenu = wx.Menu()
@@ -86,8 +120,11 @@ class AppFrame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnExit,  exitItem)
         self.Bind(wx.EVT_MENU, self.OnAbout, aboutItem)
 
+    def refresh(self):
+        self.eepromPanel.refresh()
+
     def OnExit(self, event):
-        self.Close(True)
+        self.controller.destroy()
 
     def OnImport(self, event):
         with wx.FileDialog(self, "Choose Hex file",
@@ -102,8 +139,6 @@ class AppFrame(wx.Frame):
 
     def OnAbout(self, event):
         self.showAboutDialog()
-
-        #wx.MessageBox(self.getAboutMessage(), caption = "About 32u4 Programmer", style = wx.OK | wx.ICON_INFORMATION | wx.CENTRE)
 
     def showAboutDialog(self):
         global ABSPATH
@@ -132,46 +167,101 @@ class AppFrame(wx.Frame):
     def getAboutMessage(self):
         return "In conjunction with a 32u4 Programmer or other MEEPROMMER compatible device, you can use this utility to write hex files to a 28C series EEPROM or ATtiny series microcontroller.\n\nThis program is intended to aid in the production of 8-bit homebrew games on the NES and VCS."
 
+    def OnClose(self, event):
+        self.controller.destroy()
+
 class EepromPanel(wx.Panel):
 
-    def __init__(self, parent, controller):
+    def __init__(self, parent, view, controller):
         wx.Panel.__init__(self, parent)
+
+        self.view = view
         self.controller = controller
 
         self.gridPanel = wx.Panel(self)
         self.grid = wx.GridSizer(rows=1, cols=2, hgap=16, vgap=16)
 
-        self.createDeviceSelector()
-        self.createProgrammerSelector()
-
-        self.gridPanel.SetSizer(self.grid)
-
-        sizer = wx.BoxSizer(wx.VERTICAL)
-        sizer.Add(self.gridPanel, wx.ID_ANY, wx.EXPAND | wx.ALL, 16)
-        self.SetSizer(sizer)
-
-    def getTitle(self):
-        return "EEPROM"
-
-    def createDeviceSelector(self):
+        # Device List
         self.deviceList = wx.RadioBox(self.gridPanel, label = 'Device', choices = self.controller.getDevices(),
             majorDimension = 1, style = wx.RA_SPECIFY_COLS)
         self.deviceList.Bind(wx.EVT_RADIOBOX, self.onDeviceSelect)
 
-        self.grid.Add(self.deviceList, wx.ID_ANY, wx.EXPAND)
+        self.grid.Add(self.deviceList, 1, wx.EXPAND | wx.ALL)
 
-    def createProgrammerSelector(self):
-        self.programmerList = wx.RadioBox(self.gridPanel, label = 'Programmer', choices = self.controller.getProgrammers(),
-            majorDimension = 1, style = wx.RA_SPECIFY_COLS)
-        self.programmerList.Bind(wx.EVT_RADIOBOX, self.onProgrammerSelect)
+        # Right Column Grid
+        rightGridPanel = wx.Panel(self.gridPanel)
+        rightGrid = wx.GridSizer(rows=2, cols=1, hgap=0, vgap=16)
 
-        self.grid.Add(self.programmerList, wx.ID_ANY, wx.EXPAND)
+        # Programmer List
+        programmerPanel = wx.Panel(rightGridPanel)
+        programmerSizer = wx.BoxSizer(wx.VERTICAL)
+
+        programmerSizer.Add(wx.StaticText(programmerPanel, wx.ID_ANY, "Programmer"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 2)
+
+        self.programmerList = wx.Choice(programmerPanel, choices = [], name = 'Programmer')
+        self.programmerList.Bind(wx.EVT_CHOICE, self.onProgrammerSelect)
+        programmerSizer.Add(self.programmerList, 0, wx.EXPAND)
+
+        programmerPanel.SetSizer(programmerSizer)
+        rightGrid.Add(programmerPanel, 1, wx.EXPAND)
+
+        # Action Buttons
+
+        buttonPanel = wx.Panel(rightGridPanel)
+        buttonSizer = wx.BoxSizer(wx.HORIZONTAL)
+
+        self.readButton = wx.Button(buttonPanel, wx.ID_ANY, "Read")
+        self.readButton.Bind(wx.EVT_BUTTON, self.onReadClick)
+        buttonSizer.Add(self.readButton, 0, 0)
+
+        self.writeButton = wx.Button(buttonPanel, wx.ID_ANY, "Write")
+        self.writeButton.Bind(wx.EVT_BUTTON, self.onWriteClick)
+        buttonSizer.Add(self.writeButton, 0, wx.LEFT, 8)
+
+        buttonPanel.SetSizer(buttonSizer)
+        rightGrid.Add(buttonPanel, 0, wx.EXPAND)
+
+        # Add Right Grid
+
+        rightGridPanel.SetSizer(rightGrid)
+        self.grid.Add(rightGridPanel, 1, wx.EXPAND)
+
+        # Add Full Grid to Eeprom Panel
+
+        self.gridPanel.SetSizer(self.grid)
+
+        self.panelSizer = wx.BoxSizer(wx.VERTICAL)
+        self.panelSizer.Add(self.gridPanel, wx.ID_ANY, wx.EXPAND | wx.ALL, 16)
+        self.SetSizer(self.panelSizer)
+
+    def getTitle(self):
+        return "EEPROM"
+
+    def refresh(self):
+        self.programmerList.SetItems(self.controller.getProgrammers())
+        self.onProgrammerSelect(None)
 
     def onDeviceSelect(self, e):
         print self.deviceList.GetStringSelection(),' is selected'
 
     def onProgrammerSelect(self, e):
-        print self.programmerList.GetStringSelection(),' is selected'
+        index = self.programmerList.GetSelection()
+        str = self.programmerList.GetString(index)
+
+        if len(str) <= 0:
+            return
+
+        portname = re.search("\[(COM\d+)\]", str).group(1).strip()
+        if len(portname) <= 0:
+            self.view.LogWarning("Invalid programmer selected")
+
+        self.controller.setProgrammer(portname)
+
+    def onReadClick(self, e):
+        return
+
+    def onWriteClick(self, e):
+        return
 
 class MicroPanel(wx.Panel):
 

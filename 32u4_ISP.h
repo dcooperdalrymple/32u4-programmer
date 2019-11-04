@@ -1,11 +1,11 @@
 /**
- * File: 32u4_ICP.h
+ * File: 32u4_ISP.h
  * Created: 19/10/2019
- * Updated: 19/10/2019
+ * Updated: 01/11/2019
  */
 
-#ifndef H_32U4_ICP
-#define H_32U4_ICP
+#ifndef H_32U4_ISP
+#define H_32U4_ISP
 
 #include <Arduino.h>
 
@@ -14,7 +14,7 @@
 #define PIN_MOSI    MOSI
 #define PIN_MISO    MISO
 #define PIN_SCK     SCK
-#define RESET       0
+#define RESET       12
 
 #define SPI_CLOCK   (1000000/6)
 
@@ -29,7 +29,6 @@
 
 // Parameter structure
 
-/*
 #define beget16(addr) (*addr * 256 + *(addr+1))
 typedef struct parameter {
   uint8_t devicecode;
@@ -46,12 +45,10 @@ typedef struct parameter {
   uint16_t eepromsize;
   uint32_t flashsize;
 } Parameter;
-Parameter param;
-*/
 
 // Function Definitions
 
-void setupICP();
+void setupISP();
 void reset_target(bool reset);
 
-#endif // H_32U4_ICP
+#endif // H_32U4_ISP

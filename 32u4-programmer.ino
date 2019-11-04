@@ -2,7 +2,7 @@
  * Title: 32u4 Programmer
  * Author: D Cooper Dalrymple
  * Created: 20/08/2019
- * Updated: 19/10/2019
+ * Updated: 01/11/2019
  * https://dcooperdalrymple.com/
  */
 
@@ -17,8 +17,10 @@
 #include <Mouse.h>
 #include <Keyboard.h>
 
-#include "32u4_ICP.h"
+#include "32u4_ISP.h"
 #include "32u4_EEPROM.h"
+
+#define DEBUG
 
 // Status LED
 
@@ -33,10 +35,13 @@
 // USB Serial Comm
 
 #define BAUDRATE    19200 //115200
-#define HWVER       1
-#define SWMAJ       0
-#define SWMIN       1
-#define VERSIONSTR  "32u4 Programmer $Revision 0.1 $ $Date: 19/10/2019 20:45:00 $, CMD:R,r,w,W,V"
+#define INFO_TITLE  "32u4 Programmer"
+#define INFO_HWMAJ  "0"
+#define INFO_HWMIN  "1"
+#define INFO_SWMAJ  "0"
+#define INFO_SWMIN  "1"
+#define INFO_DATE   "03/11/2019 12:16:00"
+#define INFO_STR    "Title: " INFO_TITLE "$Hardware Version: " INFO_HWMAJ "." INFO_HWMIN "$Software Version: " INFO_SWMAJ "." INFO_SWMIN "$Date: " INFO_DATE
 
 #define BUFFERSIZE  1024
 #define COMMANDSIZE 32
@@ -48,6 +53,10 @@
 #define CMD_VERSION_CH      'V'
 #define CMD_SET_ADDRESS     2
 #define CMD_SET_ADDRESS_CH  'A'
+#define CMD_SET_DATA        3
+#define CMD_SET_DATA_CH     'D'
+#define CMD_TONE            9
+#define CMD_TONE_CH         'T'
 
 #define CMD_READ_HEX        10
 #define CMD_READ_HEX_CH     'R'
@@ -86,14 +95,17 @@ void setup() {
   
   // Setup Programmers
   setupEEPROM();
-  setupICP();
+  setupISP();
 }
 
 void loop() {
   uint8_t i = 0;
   uint16_t index = 0;
-  
+
+  // Wait for command to come in
   readCommand();
+  setStatus(HIGH);
+  
   Command command = parseCommand();
 
   // Filter command values
@@ -103,13 +115,26 @@ void loop() {
 
   switch (command.code) {
     case CMD_VERSION:
-      Serial.println(VERSIONSTR);
+      Serial.println(INFO_STR);
+      break;
+    case CMD_TONE:
+      doTone();
       break;
     case CMD_SET_ADDRESS:
+      #ifdef DEBUG
       Serial.print("Setting address bus to 0x");
-      printAddress(cmd_buffer + 2);
+      printAddress(command.startAddress);
       Serial.println();
+      #endif
       set_address_bus(command.startAddress);
+      break;
+    case CMD_SET_DATA:
+      #ifdef DEBUG
+      Serial.print("Setting data bus to 0x");
+      printByte(command.startAddress & 0x00FF);
+      Serial.println();
+      #endif
+      write_data_bus(command.startAddress & 0x00FF);
       break;
     case CMD_READ_HEX:
       read_block(command.startAddress, endAddress, command.lineLength);
@@ -119,20 +144,43 @@ void loop() {
       read_binblock(command.startAddress, endAddress);
       break;
     case CMD_WRITE_HEX:
-      Serial.println("waiting for ");
+      #ifdef DEBUG
+      Serial.println("Waiting for ");
       Serial.print(command.dataLength);
       Serial.println(" bytes");
-      while (index < command.dataLength) {
+      #endif
+      while (index / 2 < command.dataLength) {
         if (Serial.available()) {
-          cmd_buffer[i++] = Serial.read();
-          if (i >= 2) {
-            block_buffer[index++] = hexByte(cmd_buffer);
-            Serial.println("Received " + block_buffer[index - 1]);
-            i = 0;
-          }
+          cmd_buffer[index++] = Serial.read();
         }
       }
+      
+      #ifdef DEBUG
+      index = 0;
+      Serial.print("Received ");
+      while (index / 2 < command.dataLength) {
+        Serial.print(cmd_buffer[index++]);
+      }
+      Serial.println();
+      #endif
+      
+      index = 0;
+      while (index < command.dataLength) {
+        block_buffer[index] = hexByte(cmd_buffer + (index * 2));
+        index++;
+      }
+
+      #ifdef DEBUG
+      index = 0;
+      Serial.print("Interpretted ");
+      while (index < command.dataLength) {
+        printByte(block_buffer[index++]);
+      }
+      Serial.println();
+      #endif
+      
       write_block(command.startAddress, block_buffer, command.dataLength);
+      
       Serial.println('%');
       break;
     case CMD_WRITE_BIN:
@@ -142,9 +190,12 @@ void loop() {
         }
       }
       write_block(command.startAddress, block_buffer, command.dataLength);
+      
       Serial.println('%');
       break;
   }
+
+  setStatus(LOW);
 }
 
 /*********************************
@@ -187,6 +238,9 @@ Command parseCommand() {
     case CMD_SET_ADDRESS_CH:
       command.code = CMD_SET_ADDRESS;
       break;
+    case CMD_SET_DATA_CH:
+      command.code = CMD_SET_DATA;
+      break;
     case CMD_READ_HEX_CH:
       command.code = CMD_READ_HEX;
       break;
@@ -201,6 +255,9 @@ Command parseCommand() {
       break;
     case CMD_VERSION_CH:
       command.code = CMD_VERSION;
+      break;
+    case CMD_TONE_CH:
+      command.code = CMD_TONE;
       break;
     default:
       command.code = CMD_NONE;
@@ -236,8 +293,13 @@ uint16_t hexWord(char* data) {
  * Status Indication *
  *********************/
 
+void setStatus(uint8_t state) {
+  digitalWrite(STATUS, state);
+}
+
 void doTone() {
-  tone(PIEZO, PIEZO_NOTE, PIEZO_DUR);
+  tone(PIEZO, PIEZO_NOTE);
+  delay(PIEZO_DUR);
   noTone(PIEZO);
   digitalWrite(PIEZO, LOW);
 }
