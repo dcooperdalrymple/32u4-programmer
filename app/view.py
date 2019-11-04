@@ -20,6 +20,8 @@ class AppView():
 
         self.frameStyle = wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN;
 
+        self.defaultDir = '.'
+
     def run(self):
         self.frame = AppFrame(self, self.controller, None, -1, title = '32u4 Programmer Utility', size = (480, 360), style = self.frameStyle)
         self.frame.Show()
@@ -61,6 +63,10 @@ class AppView():
 
     def LogSuccess(self, message):
         return self.Log(message, (40, 167, 69))
+
+    def updateDefaultDir(self, pathname):
+        self.defaultDir = os.path.dirname(os.path.abspath(pathname))
+        return True
 
 class AppFrame(wx.Frame):
 
@@ -132,14 +138,16 @@ class AppFrame(wx.Frame):
 
     def OnImport(self, event):
         with wx.FileDialog(self, "Choose Hex file",
-            wildcard="Hex files (*.hex;*.bin)|*.hex;*.bin",
-            style=wx.FD_OPEN | wx.FD_FILE_MUST_EXIST) as fileDialog:
+            wildcard = "Hex files (*.hex;*.bin;*.rom)|*.hex;*.bin;*.rom",
+            style = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST,
+            defaultDir = self.view.defaultDir) as fileDialog:
 
             if fileDialog.ShowModal() == wx.ID_CANCEL:
                 return
 
             pathname = fileDialog.GetPath()
-            self.controller.importFile(pathname)
+            self.view.updateDefaultDir(pathname)
+
             data = self.controller.importFile(pathname)
             self.hexPanel.loadContents(data)
 
