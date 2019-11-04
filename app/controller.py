@@ -5,6 +5,22 @@ import serial.tools.list_ports
 
 class AppController:
     def __init__(self, view):
+        self.baudrate = 19200
+        self.block_size = 0x0400
+        self.devices = {
+            "AT28C16": {
+                "name": "AT28C16",
+                "startAddress": 0x0000,
+                "dataLength": 0x0800,
+            },
+            "AT28C256": {
+                "name": "AT28C256",
+                "startAddress": 0x0000,
+                "dataLength": 0x8000
+            },
+        }
+        self.device = False
+
         self.serial = serial.Serial()
         self.view = view(self)
 
@@ -19,7 +35,23 @@ class AppController:
         self.closeProgrammer()
 
     def getDevices(self):
-        return ['AT28C16', 'AT28C256', 'AT28C040']
+        return [str(name) for name in self.devices]
+
+    def getDevice(self, name):
+        if not name in self.devices:
+            return False
+        else:
+            return self.devices[name]
+
+    def setDevice(self, name):
+        if not name in self.devices:
+            self.device = False
+            self.view.LogWarning("Device does not exist in database")
+            return False
+        else:
+            self.device = name
+            self.view.LogSuccess('Programmer configured to use ' + self.devices[name]["name"])
+            return self.devices[name]
 
     def getProgrammers(self):
         choices = []

@@ -248,7 +248,11 @@ class EepromPanel(wx.Panel):
         self.onProgrammerSelect(None)
 
     def onDeviceSelect(self, e):
-        print self.deviceList.GetStringSelection(),' is selected'
+        name = self.deviceList.GetStringSelection()
+        if not name or len(name) <= 0:
+            self.view.LogWarning("Invalid device selected")
+
+        self.controller.setDevice(name)
 
     def onProgrammerSelect(self, e):
         index = self.programmerList.GetSelection()
