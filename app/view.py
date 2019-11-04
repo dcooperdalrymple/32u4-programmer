@@ -23,7 +23,7 @@ class AppView():
         self.defaultDir = '.'
 
     def run(self):
-        self.frame = AppFrame(self, self.controller, None, -1, title = '32u4 Programmer Utility', size = (480, 360), style = self.frameStyle)
+        self.frame = AppFrame(self, self.controller, None, -1, title = '32u4 Programmer Utility', size = (480, 420), style = self.frameStyle)
         self.frame.Show()
         wx.CallAfter(self.OnLoad)
 
@@ -56,8 +56,11 @@ class AppView():
         return True
 
     def Log(self, message, color = (108, 117, 125)):
+        if len(self.frame.log.GetValue()) > 0:
+            message = '\n' + message
+
         # Use CallAfter to prevent multithreading issues
-        wx.CallAfter(self._log, message + '\n', color)
+        wx.CallAfter(self._log, message, color)
         return True
 
     def LogError(self, message, title = "Error"):
@@ -103,11 +106,11 @@ class AppFrame(wx.Frame):
         self.notebook = wx.Notebook(self.panel)
 
         self.eepromPanel = EepromPanel(self.notebook, self.view, self.controller)
-        self.microPanel = MicroPanel(self.notebook, self.view, self.controller)
+        #self.microPanel = MicroPanel(self.notebook, self.view, self.controller)
         self.hexPanel = HexPanel(self.notebook, self.view, self.controller)
 
         self.notebook.AddPage(self.eepromPanel, self.eepromPanel.getTitle())
-        self.notebook.AddPage(self.microPanel, self.microPanel.getTitle())
+        #self.notebook.AddPage(self.microPanel, self.microPanel.getTitle())
         self.notebook.AddPage(self.hexPanel, self.hexPanel.getTitle())
 
         self.sizer.Add(self.notebook, 1, wx.EXPAND)
@@ -118,7 +121,10 @@ class AppFrame(wx.Frame):
 
     def createMenuBar(self):
         fileMenu = wx.Menu()
-        importItem = fileMenu.Append(-1, "&Import Hex File...\tCtrl-I", "Select a file to program to EEPROM or Microcontroller")
+        readItem = fileMenu.Append(wx.ID_ANY, "&Read Device...\tCtrl-R", "Read ROM contents from selected device and programmer.")
+        writeItem = fileMenu.Append(wx.ID_ANY, "&Write Device...\tCtrl-W", "Write ROM contents from selected hex file to device from programmer.")
+        fileMenu.AppendSeparator()
+        importItem = fileMenu.Append(wx.ID_ANY, "&Import Hex File...\tCtrl-I", "Select a file to program to EEPROM or Microcontroller")
         fileMenu.AppendSeparator()
         exitItem = fileMenu.Append(wx.ID_EXIT)
 
@@ -131,6 +137,8 @@ class AppFrame(wx.Frame):
 
         self.SetMenuBar(menuBar)
 
+        self.Bind(wx.EVT_MENU, self.OnRead, readItem)
+        self.Bind(wx.EVT_MENU, self.OnWrite, writeItem)
         self.Bind(wx.EVT_MENU, self.OnImport, importItem)
         self.Bind(wx.EVT_MENU, self.OnExit,  exitItem)
         self.Bind(wx.EVT_MENU, self.OnAbout, aboutItem)
@@ -140,6 +148,12 @@ class AppFrame(wx.Frame):
 
     def OnExit(self, event):
         self.controller.destroy()
+
+    def OnRead(self, event):
+        self.eepromPanel.onReadClick(event)
+
+    def OnWrite(self, event):
+        self.eepromPanel.onWriteClick(event)
 
     def OnImport(self, event):
         with wx.FileDialog(self, "Choose Hex file",
@@ -197,22 +211,24 @@ class EepromPanel(wx.Panel):
         self.view = view
         self.controller = controller
 
-        self.gridPanel = wx.Panel(self)
-        self.grid = wx.GridSizer(rows=1, cols=2, hgap=16, vgap=16)
+        self.panel = wx.Panel(self)
+        self.sizer = wx.BoxSizer(wx.VERTICAL)
 
         # Device List
-        self.deviceList = wx.RadioBox(self.gridPanel, label = 'Device', choices = self.controller.getDevices(),
-            majorDimension = 1, style = wx.RA_SPECIFY_COLS)
-        self.deviceList.Bind(wx.EVT_RADIOBOX, self.onDeviceSelect)
+        devicePanel = wx.Panel(self.panel)
+        deviceSizer = wx.BoxSizer(wx.VERTICAL)
 
-        self.grid.Add(self.deviceList, 1, wx.EXPAND | wx.ALL)
+        deviceSizer.Add(wx.StaticText(devicePanel, wx.ID_ANY, "Device"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 2)
 
-        # Right Column Grid
-        rightGridPanel = wx.Panel(self.gridPanel)
-        rightGrid = wx.GridSizer(rows=2, cols=1, hgap=0, vgap=16)
+        self.deviceList = wx.Choice(devicePanel, choices = self.controller.getDevices(), name = 'Device')
+        self.deviceList.Bind(wx.EVT_CHOICE, self.onDeviceSelect)
+        deviceSizer.Add(self.deviceList, 0, wx.EXPAND)
+
+        devicePanel.SetSizer(deviceSizer)
+        self.sizer.Add(devicePanel, 0, wx.EXPAND | wx.BOTTOM, 16)
 
         # Programmer List
-        programmerPanel = wx.Panel(rightGridPanel)
+        programmerPanel = wx.Panel(self.panel)
         programmerSizer = wx.BoxSizer(wx.VERTICAL)
 
         programmerSizer.Add(wx.StaticText(programmerPanel, wx.ID_ANY, "Programmer"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 2)
@@ -222,35 +238,30 @@ class EepromPanel(wx.Panel):
         programmerSizer.Add(self.programmerList, 0, wx.EXPAND)
 
         programmerPanel.SetSizer(programmerSizer)
-        rightGrid.Add(programmerPanel, 1, wx.EXPAND)
+        self.sizer.Add(programmerPanel, 0, wx.EXPAND | wx.BOTTOM, 16)
 
         # Action Buttons
 
-        buttonPanel = wx.Panel(rightGridPanel)
+        buttonPanel = wx.Panel(self.panel)
         buttonSizer = wx.BoxSizer(wx.HORIZONTAL)
 
         self.readButton = wx.Button(buttonPanel, wx.ID_ANY, "Read")
         self.readButton.Bind(wx.EVT_BUTTON, self.onReadClick)
-        buttonSizer.Add(self.readButton, 0, 0)
+        buttonSizer.Add(self.readButton, 0, wx.ALIGN_RIGHT | wx.ALIGN_BOTTOM)
 
         self.writeButton = wx.Button(buttonPanel, wx.ID_ANY, "Write")
         self.writeButton.Bind(wx.EVT_BUTTON, self.onWriteClick)
-        buttonSizer.Add(self.writeButton, 0, wx.LEFT, 8)
+        buttonSizer.Add(self.writeButton, 0, wx.ALIGN_RIGHT | wx.ALIGN_BOTTOM | wx.LEFT, 8)
 
         buttonPanel.SetSizer(buttonSizer)
-        rightGrid.Add(buttonPanel, 0, wx.EXPAND)
+        self.sizer.Add(buttonPanel, 1, wx.ALIGN_RIGHT | wx.ALIGN_BOTTOM)
 
-        # Add Right Grid
+        # Add Full Panel to Eeprom Panel
 
-        rightGridPanel.SetSizer(rightGrid)
-        self.grid.Add(rightGridPanel, 1, wx.EXPAND)
-
-        # Add Full Grid to Eeprom Panel
-
-        self.gridPanel.SetSizer(self.grid)
+        self.panel.SetSizer(self.sizer)
 
         self.panelSizer = wx.BoxSizer(wx.VERTICAL)
-        self.panelSizer.Add(self.gridPanel, wx.ID_ANY, wx.EXPAND | wx.ALL, 16)
+        self.panelSizer.Add(self.panel, 1, wx.EXPAND | wx.ALL, 16)
         self.SetSizer(self.panelSizer)
 
     def getTitle(self):
@@ -294,6 +305,9 @@ class EepromPanel(wx.Panel):
         data = self.controller.readDevice()
 
         if isinstance(data, list):
+            # Display read data in hex viewer
+            wx.CallAfter(self.view.frame.hexPanel.loadContents, data)
+
             # Select file to save hex file
             with wx.FileDialog(self, "Save ROM Hex File",
                 wildcard = "Hex files (*.hex;*.bin;*.rom)|*.hex;*.bin;*.rom",
@@ -338,6 +352,11 @@ class EepromPanel(wx.Panel):
             thread.start()
 
     def performWrite(self, pathname):
+        # Display write data in hex viewer
+        data = self.controller.importFile(pathname)
+        if data != False and isinstance(data, list):
+            wx.CallAfter(self.view.frame.hexPanel.loadContents, data)
+
         # Perform write to Eeprom from Programmer
         self.controller.writeFile(pathname)
 
@@ -384,6 +403,7 @@ class HexPanel(wx.Panel):
         # Setup Grid
         self.grid = wx.grid.Grid(self, wx.ID_ANY, style = 0)
         self.grid.CreateGrid(1, self.columns * 2 + 1)
+        self.grid.EnableEditing(False)
 
         ## Labels
         self.grid.HideRowLabels()
@@ -395,10 +415,6 @@ class HexPanel(wx.Panel):
         ## Font
         self.grid.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
         self.grid.SetDefaultCellFont(wx.Font(wx.DEFAULT, wx.TELETYPE, wx.NORMAL, wx.NORMAL, False))
-
-        # Setup Editor
-        #self.gridEditor = wx.grid.GridCellTextEditor(maxChars = 2)
-        #self.grid.SetDefaultEditor(self.gridEditor)
 
         # Add to Panel
         sizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -448,3 +464,5 @@ class HexPanel(wx.Panel):
         self.Layout()
 
         return True
+
+# NOTE: Maybe create HexGrid class based on HugeTableGrid example.
