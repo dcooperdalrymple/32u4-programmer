@@ -2,9 +2,11 @@
 
 import threading
 import wx
+import wx.grid
 import wx.adv
 import os
 import re
+import math
 
 ABSPATH = os.path.dirname(os.path.abspath(__file__))
 if ABSPATH.endswith('app'):
@@ -90,10 +92,12 @@ class AppFrame(wx.Frame):
         self.notebook = wx.Notebook(self.panel)
 
         self.eepromPanel = EepromPanel(self.notebook, self.view, self.controller)
-        self.microPanel = MicroPanel(self.notebook, self.controller)
+        self.microPanel = MicroPanel(self.notebook, self.view, self.controller)
+        self.hexPanel = HexPanel(self.notebook, self.view, self.controller)
 
         self.notebook.AddPage(self.eepromPanel, self.eepromPanel.getTitle())
         self.notebook.AddPage(self.microPanel, self.microPanel.getTitle())
+        self.notebook.AddPage(self.hexPanel, self.hexPanel.getTitle())
 
         self.sizer.Add(self.notebook, 1, wx.EXPAND)
 
@@ -136,6 +140,8 @@ class AppFrame(wx.Frame):
 
             pathname = fileDialog.GetPath()
             self.controller.importFile(pathname)
+            data = self.controller.importFile(pathname)
+            self.hexPanel.loadContents(data)
 
     def OnAbout(self, event):
         self.showAboutDialog()
@@ -265,11 +271,91 @@ class EepromPanel(wx.Panel):
 
 class MicroPanel(wx.Panel):
 
-    def __init__(self, parent, controller):
+    def __init__(self, parent, view, controller):
         wx.Panel.__init__(self, parent)
+
+        self.view = view
         self.controller = controller
 
         t = wx.StaticText(self, wx.ID_ANY, "This is the microcontroller tab.", (20, 20))
 
     def getTitle(self):
         return "Microcontroller"
+
+class HexPanel(wx.Panel):
+
+    def __init__(self, parent, view, controller):
+        wx.Panel.__init__(self, parent)
+
+        self.view = view
+        self.controller = controller
+
+        self.columns = 8
+
+        # Setup Grid
+        self.grid = wx.grid.Grid(self, wx.ID_ANY, style = 0)
+        self.grid.CreateGrid(1, self.columns * 2 + 1)
+
+        ## Labels
+        self.grid.HideRowLabels()
+        for i in range(self.columns):
+            self.grid.SetColLabelValue(i * 2 + 0, "Address")
+            self.grid.SetColLabelValue(i * 2 + 1, "Value")
+        self.grid.SetColLabelValue(self.columns * 2, "")
+
+        ## Font
+        self.grid.SetDefaultCellAlignment(wx.ALIGN_LEFT, wx.ALIGN_TOP)
+        self.grid.SetDefaultCellFont(wx.Font(wx.DEFAULT, wx.TELETYPE, wx.NORMAL, wx.NORMAL, False))
+
+        # Setup Editor
+        #self.gridEditor = wx.grid.GridCellTextEditor(maxChars = 2)
+        #self.grid.SetDefaultEditor(self.gridEditor)
+
+        # Add to Panel
+        sizer = wx.BoxSizer(wx.HORIZONTAL)
+        sizer.Add(self.grid, 1, wx.ALL, 0)
+        self.SetSizer(sizer)
+
+    def getTitle(self):
+        return "Hex"
+
+    def loadContents(self, data):
+        self.grid.ClearGrid()
+        self.grid.GetTable().DeleteRows(0, self.grid.GetNumberRows())
+
+        if not data or not isinstance(data, list):
+            return False
+
+        self.grid.AppendRows(math.ceil(len(data) / self.columns))
+
+        # Set Hex Addresses and Values
+        col = 0
+        row = 0
+        for i, x in enumerate(data):
+            self.grid.SetCellValue(row, col * 2 + 0, "0x{0:0{1}x}".format(i, 4))
+            self.grid.SetCellValue(row, col * 2 + 1, "0x{0:0{1}x}".format(x, 2))
+
+            col = col + 1
+            if col >= self.columns:
+                col = 0
+                row = row + 1
+
+        # Set String Visualization
+        row = 0
+        val = ""
+        for i, x in enumerate(data):
+            char = " "
+            try:
+                char = chr(x).encode('utf-8').decode('utf-8')
+            except UnicodeDecodeError:
+                char = " "
+
+            val = val + char
+            if len(val) > self.columns or i >= len(data) - 1:
+                self.grid.SetCellValue(row, self.columns * 2, val)
+                val = ""
+                row = row + 1
+
+        self.Layout()
+
+        return True
