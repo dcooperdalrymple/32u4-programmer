@@ -177,6 +177,9 @@ class AppController:
 
         return info_data
 
+    def playTone(self):
+        return self.serial.is_open != False and self.sendCommand(u'T') != False
+
     def readDevice(self):
         if not self.device or not self.device in self.devices:
             self.view.LogError("Device not selected.", "Device Read Error")
@@ -206,6 +209,7 @@ class AppController:
             self.view.LogError("Failed to read all {} bytes from ROM. Only received {}.".format(dataLength, len(data)), "Device Read Error")
             return False
 
+        self.playTone() # Play tone on programmer to indicate read completion
         return data
 
     def readBlock(self, startAddress, dataLength):
@@ -270,6 +274,9 @@ class AppController:
             self.view.LogError("Failed to write all blocks to device", "Device Write Error")
             return False
 
+        # TODO: Write verification process
+
+        self.playTone() # Play tone on programmer to indicate write completion
         return True
 
     def writeBlock(self, startAddress, data):
