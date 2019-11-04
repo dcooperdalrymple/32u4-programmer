@@ -281,10 +281,82 @@ class EepromPanel(wx.Panel):
         self.controller.setProgrammer(portname)
 
     def onReadClick(self, e):
-        return
+        self.disableControls()
+
+        self.view.Log("Beginning device read.")
+
+        # Thread to perform read, save output, and re-enable controls once complete
+        thread = threading.Thread(target = self.performRead)
+        thread.start()
+
+    def performRead(self):
+        # Read contents of device from programmer
+        data = self.controller.readDevice()
+
+        if isinstance(data, list):
+            # Select file to save hex file
+            with wx.FileDialog(self, "Save ROM Hex File",
+                wildcard = "Hex files (*.hex;*.bin;*.rom)|*.hex;*.bin;*.rom",
+                style = wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT,
+                defaultDir = self.view.defaultDir) as fileDialog:
+
+                if fileDialog.ShowModal() != wx.ID_CANCEL:
+                    pathname = fileDialog.GetPath()
+                    self.view.updateDefaultDir(pathname)
+
+                    self.view.Log("Writing rom contents to hex file, {}.".format(pathname))
+
+                    try:
+                        with open(pathname, 'w') as file:
+                            file.write(bytearray(data, 'utf-8'))
+                    except IOError:
+                        self.view.LogError("Unable to save data to hex file, {}.".format(pathname))
+
+        self.view.Log("Device read process completed.")
+        self.enableControls()
 
     def onWriteClick(self, e):
-        return
+        self.disableControls()
+
+        # Select file to import
+        with wx.FileDialog(self, "Choose Hex File to Write Device",
+            wildcard = "Hex files (*.hex;*.bin;*.rom)|*.hex;*.bin;*.rom",
+            style = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST,
+            defaultDir = self.view.defaultDir) as fileDialog:
+
+            if fileDialog.ShowModal() == wx.ID_CANCEL:
+                self.enableControls()
+                return
+
+            pathname = fileDialog.GetPath()
+            self.view.updateDefaultDir(pathname)
+
+            self.view.Log("Beginning device write from {}.".format(pathname))
+
+            # Thread to perform write and re-enable controls once complete
+            thread = threading.Thread(target = self.performWrite, args = (pathname,))
+            thread.start()
+
+    def performWrite(self, pathname):
+        # Perform write to Eeprom from Programmer
+        self.controller.writeFile(pathname)
+
+        self.view.Log("Device write process completed.")
+        self.enableControls()
+
+    def disableControls(self):
+        # Use CallAfter to prevent multithreading issues
+        wx.CallAfter(self.deviceList.Disable)
+        wx.CallAfter(self.programmerList.Disable)
+        wx.CallAfter(self.readButton.Disable)
+        wx.CallAfter(self.writeButton.Disable)
+
+    def enableControls(self):
+        # Use CallAfter to prevent multithreading issues
+        wx.CallAfter(self.deviceList.Enable)
+        wx.CallAfter(self.programmerList.Enable)
+        wx.CallAfter(self.readButton.Enable)
+        wx.CallAfter(self.writeButton.Enable)
 
 class MicroPanel(wx.Panel):
 

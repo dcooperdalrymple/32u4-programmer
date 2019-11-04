@@ -2,6 +2,7 @@
 
 import serial
 import serial.tools.list_ports
+import time
 
 class AppController:
     def __init__(self, view):
@@ -176,25 +177,140 @@ class AppController:
 
         return info_data
 
-    def readChip(self):
-        # Iterate through 1024 byte blocks
-        return False
+    def readDevice(self):
+        if not self.device or not self.device in self.devices:
+            self.view.LogError("Device not selected.", "Device Read Error")
+            return False
 
-    def readBlock(self):
-        return False
+        if self.serial.is_open == False:
+            self.view.LogError("Programmer not connected.", "Device Read Error")
+            return False
 
-    def writeChip(self):
-        # Write hex file to chip in 1024 byte blocks
-        return False
+        startAddress = self.devices[self.device]["startAddress"]
+        dataLength = self.devices[self.device]["dataLength"]
+        endAddress = dataLength + startAddress
 
-    def writeBlock(self):
-        return False
+        data = []
+        address = startAddress
+        while address < endAddress:
+            block_size = min(self.block_size, endAddress - address)
+
+            block = self.readBlock(address, block_size)
+            if block == False or len(block) <= 0:
+                break
+
+            data = data + block
+            address += block_size
+
+        if len(data) != dataLength:
+            self.view.LogError("Failed to read all {} bytes from ROM. Only received {}.".format(dataLength, len(data)), "Device Read Error")
+            return False
+
+        return data
+
+    def readBlock(self, startAddress, dataLength):
+        if self.serial.is_open == False:
+            return False
+
+        if not self.sendCommand(u'r', startAddress, dataLength):
+            return False
+
+        time.sleep(0.1) # Wait for programmer to start working
+
+#        block = []
+#        while self.serial.in_waiting:
+#            byte = self.serial.read(1)
+#            if not byte:
+#                break # Timed out
+#            if byte == "\0":
+#                break # End of response
+#            block.append(ord(byte))
+
+        try:
+            block = self.serial.read_until("\0", dataLength)
+        except serial.SerialException as e:
+            self.view.LogError(str(e), "Block Read Error")
+            return False
+
+        # Convert bytes to array of ints
+        block = [ord(x) for x in block]
+
+        return block
+
+    def writeDevice(self, data):
+        if not self.device or not self.device in self.devices:
+            self.view.LogError("Device not selected.", "Device Write Error")
+            return False
+
+        if self.serial.is_open == False:
+            self.view.LogError("Programmer not connected.", "Device Write Error")
+            return False
+
+        startAddress = self.devices[self.device]["startAddress"]
+        dataLength = self.devices[self.device]["dataLength"]
+        endAddress = dataLength + startAddress
+
+        if len(data) != dataLength:
+            self.view.LogError("ROM data not the appropriate length for device. Must be {} bytes.".format(dataLength), "Device Write Error")
+            return False
+
+        error = False
+        address = startAddress
+        while address < endAddress:
+            block_size = min(self.block_size, endAddress - address)
+
+            relAddr = address - startAddress
+            block = data[slice(relAddr, relAddr + block_size)]
+
+            if not self.writeBlock(address, block):
+                error = True
+                break
+
+        if error == True:
+            self.view.LogError("Failed to write all blocks to device", "Device Write Error")
+            return False
+
+        return True
+
+    def writeBlock(self, startAddress, data):
+        if self.serial.is_open == False:
+            return False
+
+        if len(data) > self.block_size:
+            return False
+
+        if not self.sendCommand(u'w', startAddress, len(data)):
+            return False
+
+        try:
+            self.serial.write(bytearray(data))
+            self.serial.flush()
+        except serial.SerialException as e:
+            self.view.LogError(str(e), "Block Write Error")
+            return False
+
+        return True
+
+    def writeFile(self, pathname):
+        data = self.importFile(pathname)
+        if data == False or not isinstance(data, list):
+            self.view.LogError("Unable to read hex data from file, {}.".format(pathname))
+            return False
+
+        return self.writeDevice(data)
 
     def importFile(self, pathname):
+        contents = False
+
         try:
             with open(pathname, 'r') as file:
                 if file.mode == 'r':
-                    contents = file.read()
+                    contents = bytearray(file.read())
                 file.close()
         except IOError:
             wx.LogError("Cannot open data in file '%s'." % pathname)
+
+        if contents == False or not isinstance(contents, bytearray):
+            return False
+
+        return [x for x in contents]
