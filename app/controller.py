@@ -9,6 +9,8 @@ class AppController:
         self.default_timeout = 0.25
         self.block_timeout = 10
         self.block_size = 0x0400
+        self.write_cycles = 3
+
         self.devices = {
             "AT28C16": {
                 "name": "AT28C16",
@@ -262,25 +264,45 @@ class AppController:
             self.view.LogError("ROM data not the appropriate length for device. Must be {} bytes.".format(dataLength), "Device Write Error")
             return False
 
+
+        # Write data and verify results for a number of write cycles until device is fully written
+        cycle = 0
+        verified = False
         error = False
-        address = startAddress
-        while address < endAddress:
-            block_size = min(self.block_size, endAddress - address)
+        while error == False and verified == False and cycle < self.write_cycles:
 
-            relAddr = address - startAddress
-            block = data[slice(relAddr, relAddr + block_size)]
+            # Write blocks
+            address = startAddress
+            while address < endAddress:
+                block_size = min(self.block_size, endAddress - address)
 
-            if not self.writeBlock(address, block):
-                error = True
+                relAddr = address - startAddress
+                block = data[slice(relAddr, relAddr + block_size)]
+
+                if not self.writeBlock(address, block):
+                    error = True
+                    break
+
+                address += block_size
+
+            if error == True:
                 break
 
-            address += block_size
+            # Verify data
+            readData = self.readDevice()
+            if self.compareData(data, readData) == True:
+                verified = True
+                break
+
+            cycle += 1
 
         if error == True:
-            self.view.LogError("Failed to write all blocks to device", "Device Write Error")
+            self.view.LogError("Failed to write all blocks to device.", "Device Write Error")
             return False
 
-        # TODO: Write verification process
+        if verified == False:
+            self.view.LogError("Unable to verify data was written to Eeprom device.", "Device Write Error")
+            return False
 
         self.playTone() # Play tone on programmer to indicate write completion
         return True
@@ -320,6 +342,20 @@ class AppController:
             return False
 
         return self.writeDevice(data)
+
+    def compareData(self, a, b):
+        if not isinstance(a, list) or not isinstance(b, list):
+            return False
+
+        if len(a) != len(b):
+            return False
+
+        diff = 0
+        for i, val in enumerate(a):
+            if val != b[i]:
+                diff += 1
+
+        return diff == 0
 
     def importFile(self, pathname):
         self.view.Log("Reading contents of binary file, {}.".format(pathname))
