@@ -6,7 +6,8 @@ import time
 
 class AppController:
     def __init__(self, view):
-        self.baudrate = 19200
+        self.default_timeout = 0.25
+        self.block_timeout = 10
         self.block_size = 0x0400
         self.devices = {
             "AT28C16": {
@@ -22,7 +23,17 @@ class AppController:
         }
         self.device = False
 
-        self.serial = serial.Serial()
+        self.serial = serial.Serial(
+            baudrate = 19200,
+            bytesize = 8,
+            parity = 'N',
+            stopbits = 1,
+            rtscts = False,
+            xonxoff = False,
+            timeout = self.default_timeout,
+            write_timeout = self.default_timeout
+        )
+
         self.view = view(self)
 
     def run(self):
@@ -32,8 +43,8 @@ class AppController:
         self.view.update()
 
     def destroy(self):
-        self.view.destroy()
         self.closeProgrammer()
+        self.view.destroy()
 
     def getDevices(self):
         return [str(name) for name in self.devices]
@@ -55,16 +66,23 @@ class AppController:
             return self.devices[name]
 
     def getProgrammers(self):
-        choices = []
+        self.view.Log("Querying serial COM ports for programming devices.")
 
+        choices = []
         for n, (portname, desc, hwid) in enumerate(sorted(serial.tools.list_ports.comports())):
             if self.checkProgrammer(portname) == True:
                 info = self.getInfo()
                 choices.append("{} v{} [{}]".format(info['Title'], info['Software Version'], portname))
 
+        plural = ""
+        if len(choices) > 1: plural = "s"
+
+        self.view.Log("Done querying COM ports. {} device{} found.".format(len(choices), plural))
         return choices
 
     def checkProgrammer(self, portname):
+        self.view.Log("Checking device on {}.".format(portname))
+
         if self.setProgrammer(portname) == False:
             return False
 
@@ -81,33 +99,23 @@ class AppController:
         self.closeProgrammer()
 
         self.serial.port = portname
-        self.serial.baudrate = 19200
-        self.serial.bytesize = 8
-        self.serial.parity = 'N'
-        self.serial.stopbits = 1
-        self.serial.rtscts = False
-        self.serial.xonxoff = False
-        self.serial.timeout = 1
-
         try:
             self.serial.open()
         except serial.SerialException as e:
             self.view.LogError(str(e), "Serial Port Error")
             return False
-        else:
-            self.view.LogSuccess("Serial port successfully opened on {} [{},{},{},{}{}{}]".format(
-                self.serial.portstr,
-                self.serial.baudrate,
-                self.serial.bytesize,
-                self.serial.parity,
-                self.serial.stopbits,
-                ' RTS/CTS' if self.serial.rtscts else '',
-                ' Xon/Xoff' if self.serial.xonxoff else '',
-            ))
 
-            return True
+        self.view.LogSuccess("Serial port successfully opened on {} [{},{},{},{}{}{}]".format(
+            self.serial.portstr,
+            self.serial.baudrate,
+            self.serial.bytesize,
+            self.serial.parity,
+            self.serial.stopbits,
+            ' RTS/CTS' if self.serial.rtscts else '',
+            ' Xon/Xoff' if self.serial.xonxoff else '',
+        ))
 
-        return False
+        return True
 
     def closeProgrammer(self):
         if self.serial.is_open == True:
@@ -116,28 +124,29 @@ class AppController:
         else:
             return False
 
-    def sendCommand(self, code, startAddress = False, dataLength = False, lineLength = False):
+    def sendCommand(self, code, startAddress = None, dataLength = None, lineLength = None):
         if len(code) < 1 or self.serial.is_open == False:
             return False
 
         # Build Command
         command = code[:1]
-        if startAddress != False:
+        if startAddress is not None:
             if startAddress > 0xffff:
                 startAddress = 0xffff
             command += ',' + "{0:0{1}x}".format(startAddress, 4)
 
-            if dataLength != False:
+            if dataLength is not None:
                 if dataLength > 0xffff:
                     dataLength = 0xffff
                 command += ',' + "{0:0{1}x}".format(dataLength, 4)
 
-                if lineLength != False:
+                if lineLength is not None:
                     if lineLength > 0xff:
                         lineLength = 0xff
                     command += ',' + "{0:0{1}x}".format(lineLength, 2)
         command += '\n'
 
+        self.view.Log("Sending Command: {}".format(command[:-1]))
         try:
             self.serial.write(command.encode('utf-8'))
             self.serial.flush()
@@ -156,7 +165,7 @@ class AppController:
 
         info_str = False
         try:
-            info_str = self.serial.readline()
+            info_str = str(self.serial.read_until('\n'))
         except serial.SerialException as e:
             self.view.LogError(str(e), "Serial Read Error")
             return False
@@ -221,20 +230,15 @@ class AppController:
 
         time.sleep(0.1) # Wait for programmer to start working
 
-#        block = []
-#        while self.serial.in_waiting:
-#            byte = self.serial.read(1)
-#            if not byte:
-#                break # Timed out
-#            if byte == "\0":
-#                break # End of response
-#            block.append(ord(byte))
-
+        self.serial.timeout = self.block_timeout
         try:
-            block = self.serial.read_until("\0", dataLength)
+            block = self.serial.read(dataLength)
+            terminator = self.serial.read(1)
         except serial.SerialException as e:
             self.view.LogError(str(e), "Block Read Error")
+            self.serial.timeout = self.default_timeout
             return False
+        self.serial.timeout = self.default_timeout
 
         # Convert bytes to array of ints
         block = [ord(x) for x in block]
@@ -270,6 +274,8 @@ class AppController:
                 error = True
                 break
 
+            address += block_size
+
         if error == True:
             self.view.LogError("Failed to write all blocks to device", "Device Write Error")
             return False
@@ -289,12 +295,21 @@ class AppController:
         if not self.sendCommand(u'w', startAddress, len(data)):
             return False
 
+        self.serial.timeout = self.block_timeout
         try:
+            # Write Data
             self.serial.write(bytearray(data))
             self.serial.flush()
+
+            # Wait for completion
+            self.serial.read_until('%')
+            self.serial.reset_input_buffer() # Clears newline
+
         except serial.SerialException as e:
+            self.serial.timeout = self.default_timeout
             self.view.LogError(str(e), "Block Write Error")
             return False
+        self.serial.timeout = self.default_timeout
 
         return True
 
@@ -307,11 +322,12 @@ class AppController:
         return self.writeDevice(data)
 
     def importFile(self, pathname):
-        contents = False
+        self.view.Log("Reading contents of binary file, {}.".format(pathname))
 
+        contents = False
         try:
-            with open(pathname, 'r') as file:
-                if file.mode == 'r':
+            with open(pathname, 'rb') as file:
+                if file.mode == 'rb':
                     contents = bytearray(file.read())
                 file.close()
         except IOError:
@@ -321,3 +337,14 @@ class AppController:
             return False
 
         return [x for x in contents]
+
+    def exportFile(self, pathname, data):
+        self.view.Log("Writing data with {} bytes to binary file, {}.".format(len(data), pathname))
+
+        try:
+            with open(pathname, 'wb') as file:
+                if file.mode == 'wb':
+                    file.write(bytearray(data))
+                file.close()
+        except IOError:
+            self.view.LogError("Unable to save data to hex file, {}.".format(pathname))

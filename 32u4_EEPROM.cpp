@@ -68,7 +68,7 @@ void set_address_bus(uint16_t address) {
   uint8_t lo = address & 0xff;
 
   digitalWrite(LATCH, LOW);
-  
+
   shiftOut(DATA, CLOCK, LSBFIRST, lo);
   shiftOut(DATA, CLOCK, LSBFIRST, hi);
 
@@ -92,25 +92,26 @@ void set_we(uint8_t state) {
 
 uint8_t read_byte(uint16_t address) {
   data_bus_input();
-  
+
   set_oe(HIGH); // Disable Output
   set_ce(LOW); // Enable Chip Select
   set_we(HIGH); // Disable Write
-  
+
   set_address_bus(address); // Set Address
-  
+
   set_oe(LOW); // Enable Output
-  delayMicroseconds(2);
+  delay(1);
   uint8_t data = read_data_bus();
   set_oe(HIGH); // Disable Output
 
+  delay(1);
   return data;
 }
 
 void write_byte(uint16_t address, uint8_t data) {
   set_oe(HIGH); // Disable Output
   set_we(HIGH); // Disable Write
-  
+
   set_address_bus(address); // Set Address
 
   data_bus_output();
@@ -119,9 +120,9 @@ void write_byte(uint16_t address, uint8_t data) {
   set_ce(LOW); // Enable Chip Select
 
   // Perform Write
-  delayMicroseconds(1);
+  delayMicroseconds(20);
   set_we(LOW); // Enable Write
-  delayMicroseconds(1);
+  delayMicroseconds(20);
   set_we(HIGH); // Disable Write
 
   // Wait until data is correct
@@ -132,7 +133,7 @@ void write_byte(uint16_t address, uint8_t data) {
   set_oe(HIGH); // Disable Output
   set_ce(HIGH); // Disable Chip Select
 
-  delay(1);
+  delay(3);
 }
 
 // Input / Output

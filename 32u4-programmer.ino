@@ -20,7 +20,7 @@
 #include "32u4_ISP.h"
 #include "32u4_EEPROM.h"
 
-#define DEBUG
+//#define DEBUG
 
 // Status LED
 

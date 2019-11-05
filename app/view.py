@@ -56,11 +56,8 @@ class AppView():
         return True
 
     def Log(self, message, color = (108, 117, 125)):
-        if len(self.frame.log.GetValue()) > 0:
-            message = '\n' + message
-
         # Use CallAfter to prevent multithreading issues
-        wx.CallAfter(self._log, message, color)
+        wx.CallAfter(self._log, '\n' + message, color)
         return True
 
     def LogError(self, message, title = "Error"):
@@ -108,10 +105,12 @@ class AppFrame(wx.Frame):
         self.eepromPanel = EepromPanel(self.notebook, self.view, self.controller)
         #self.microPanel = MicroPanel(self.notebook, self.view, self.controller)
         self.hexPanel = HexPanel(self.notebook, self.view, self.controller)
+        #self.debugPanel = DebugPanel(self.notebook, self.view, self.controller)
 
         self.notebook.AddPage(self.eepromPanel, self.eepromPanel.getTitle())
         #self.notebook.AddPage(self.microPanel, self.microPanel.getTitle())
         self.notebook.AddPage(self.hexPanel, self.hexPanel.getTitle())
+        #self.notebook.AddPage(self.debugPanel, self.debugPanel.getTitle())
 
         self.sizer.Add(self.notebook, 1, wx.EXPAND)
 
@@ -121,43 +120,41 @@ class AppFrame(wx.Frame):
 
     def createMenuBar(self):
         fileMenu = wx.Menu()
-        readItem = fileMenu.Append(wx.ID_ANY, "&Read Device...\tCtrl-R", "Read ROM contents from selected device and programmer.")
-        writeItem = fileMenu.Append(wx.ID_ANY, "&Write Device...\tCtrl-W", "Write ROM contents from selected hex file to device from programmer.")
-        fileMenu.AppendSeparator()
         importItem = fileMenu.Append(wx.ID_ANY, "&Import Hex File...\tCtrl-I", "Select a file to program to EEPROM or Microcontroller")
         fileMenu.AppendSeparator()
         exitItem = fileMenu.Append(wx.ID_EXIT)
+
+        programMenu = wx.Menu()
+        refreshItem = programMenu.Append(wx.ID_ANY, "&Refresh\tF5", "Refresh the list of programmers by querying serial COM ports.")
+        programMenu.AppendSeparator()
+        readItem = programMenu.Append(wx.ID_ANY, "&Read Device...\tCtrl-R", "Read ROM contents from selected device and programmer.")
+        writeItem = programMenu.Append(wx.ID_ANY, "&Write Device...\tCtrl-W", "Write ROM contents from selected hex file to device from programmer.")
 
         helpMenu = wx.Menu()
         aboutItem = helpMenu.Append(wx.ID_ABOUT)
 
         menuBar = wx.MenuBar()
         menuBar.Append(fileMenu, "&File")
+        menuBar.Append(programMenu, "&Program")
         menuBar.Append(helpMenu, "&Help")
 
         self.SetMenuBar(menuBar)
 
-        self.Bind(wx.EVT_MENU, self.OnRead, readItem)
-        self.Bind(wx.EVT_MENU, self.OnWrite, writeItem)
         self.Bind(wx.EVT_MENU, self.OnImport, importItem)
         self.Bind(wx.EVT_MENU, self.OnExit,  exitItem)
+
+        self.Bind(wx.EVT_MENU, self.OnRefresh, refreshItem)
+        self.Bind(wx.EVT_MENU, self.OnRead, readItem)
+        self.Bind(wx.EVT_MENU, self.OnWrite, writeItem)
+
         self.Bind(wx.EVT_MENU, self.OnAbout, aboutItem)
 
     def refresh(self):
         self.eepromPanel.refresh()
 
-    def OnExit(self, event):
-        self.controller.destroy()
-
-    def OnRead(self, event):
-        self.eepromPanel.onReadClick(event)
-
-    def OnWrite(self, event):
-        self.eepromPanel.onWriteClick(event)
-
     def OnImport(self, event):
         with wx.FileDialog(self, "Choose Hex file",
-            wildcard = "Hex files (*.hex;*.bin;*.rom)|*.hex;*.bin;*.rom",
+            wildcard = "Hex files (*.hex;*.bin)|*.hex;*.bin",
             style = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST,
             defaultDir = self.view.defaultDir) as fileDialog:
 
@@ -169,6 +166,18 @@ class AppFrame(wx.Frame):
 
             data = self.controller.importFile(pathname)
             self.hexPanel.loadContents(data)
+
+    def OnExit(self, event):
+        self.controller.destroy()
+
+    def OnRefresh(self, event):
+        self.view.refresh()
+
+    def OnRead(self, event):
+        self.eepromPanel.onReadClick(event)
+
+    def OnWrite(self, event):
+        self.eepromPanel.onWriteClick(event)
 
     def OnAbout(self, event):
         self.showAboutDialog()
@@ -220,7 +229,7 @@ class EepromPanel(wx.Panel):
 
         deviceSizer.Add(wx.StaticText(devicePanel, wx.ID_ANY, "Device"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 2)
 
-        self.deviceList = wx.Choice(devicePanel, choices = self.controller.getDevices(), name = 'Device')
+        self.deviceList = wx.Choice(devicePanel, choices = self.controller.getDevices(), name = 'Device', style = wx.CB_SORT)
         self.deviceList.Bind(wx.EVT_CHOICE, self.onDeviceSelect)
         deviceSizer.Add(self.deviceList, 0, wx.EXPAND)
 
@@ -268,8 +277,10 @@ class EepromPanel(wx.Panel):
         return "EEPROM"
 
     def refresh(self):
+        wx.CallAfter(self.disableControls)
         self.programmerList.SetItems(self.controller.getProgrammers())
         self.onProgrammerSelect(None)
+        wx.CallAfter(self.enableControls)
 
     def onDeviceSelect(self, e):
         name = self.deviceList.GetStringSelection()
@@ -289,7 +300,8 @@ class EepromPanel(wx.Panel):
         if len(portname) <= 0:
             self.view.LogWarning("Invalid programmer selected")
 
-        self.controller.setProgrammer(portname)
+        if self.controller.setProgrammer(portname):
+            self.view.LogSuccess("Successfully connected with programmer on {}.".format(portname))
 
     def onReadClick(self, e):
         self.disableControls()
@@ -310,7 +322,7 @@ class EepromPanel(wx.Panel):
 
             # Select file to save hex file
             with wx.FileDialog(self, "Save ROM Hex File",
-                wildcard = "Hex files (*.hex;*.bin;*.rom)|*.hex;*.bin;*.rom",
+                wildcard = "Hex files (*.hex;*.bin)|*.hex;*.bin",
                 style = wx.FD_SAVE | wx.FD_OVERWRITE_PROMPT,
                 defaultDir = self.view.defaultDir) as fileDialog:
 
@@ -318,13 +330,8 @@ class EepromPanel(wx.Panel):
                     pathname = fileDialog.GetPath()
                     self.view.updateDefaultDir(pathname)
 
-                    self.view.Log("Writing rom contents to hex file, {}.".format(pathname))
-
-                    try:
-                        with open(pathname, 'w') as file:
-                            file.write(bytearray(data, 'utf-8'))
-                    except IOError:
-                        self.view.LogError("Unable to save data to hex file, {}.".format(pathname))
+                    # Write data to file
+                    self.controller.exportFile(pathname, data)
 
         self.view.Log("Device read process completed.")
         self.enableControls()
@@ -334,7 +341,7 @@ class EepromPanel(wx.Panel):
 
         # Select file to import
         with wx.FileDialog(self, "Choose Hex File to Write Device",
-            wildcard = "Hex files (*.hex;*.bin;*.rom)|*.hex;*.bin;*.rom",
+            wildcard = "Hex files (*.hex;*.bin)|*.hex;*.bin",
             style = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST,
             defaultDir = self.view.defaultDir) as fileDialog:
 
@@ -418,7 +425,7 @@ class HexPanel(wx.Panel):
 
         # Add to Panel
         sizer = wx.BoxSizer(wx.HORIZONTAL)
-        sizer.Add(self.grid, 1, wx.ALL, 0)
+        sizer.Add(self.grid, 1, wx.EXPAND | wx.ALL, 0)
         self.SetSizer(sizer)
 
     def getTitle(self):
@@ -431,14 +438,14 @@ class HexPanel(wx.Panel):
         if not data or not isinstance(data, list):
             return False
 
-        self.grid.AppendRows(math.ceil(len(data) / self.columns))
+        self.grid.GetTable().AppendRows(int(math.ceil(float(len(data)) / float(self.columns))))
 
         # Set Hex Addresses and Values
         col = 0
         row = 0
         for i, x in enumerate(data):
-            self.grid.SetCellValue(row, col * 2 + 0, "0x{0:0{1}x}".format(i, 4))
-            self.grid.SetCellValue(row, col * 2 + 1, "0x{0:0{1}x}".format(x, 2))
+            self.grid.SetCellValue(row, col * 2 + 0, "{0:0{1}x}".format(i, 4))
+            self.grid.SetCellValue(row, col * 2 + 1, "{0:0{1}x}".format(x, 2))
 
             col = col + 1
             if col >= self.columns:
@@ -464,5 +471,16 @@ class HexPanel(wx.Panel):
         self.Layout()
 
         return True
+
+class DebugPanel(wx.Panel):
+
+    def __init__(self, parent, view, controller):
+        wx.Panel.__init__(self, parent)
+
+        self.view = view
+        self.controller = controller
+
+    def getTitle(self):
+        return "Debug"
 
 # NOTE: Maybe create HexGrid class based on HugeTableGrid example.
