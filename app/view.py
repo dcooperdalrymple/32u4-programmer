@@ -105,12 +105,12 @@ class AppFrame(wx.Frame):
         self.eepromPanel = EepromPanel(self.notebook, self.view, self.controller)
         #self.microPanel = MicroPanel(self.notebook, self.view, self.controller)
         self.hexPanel = HexPanel(self.notebook, self.view, self.controller)
-        #self.debugPanel = DebugPanel(self.notebook, self.view, self.controller)
+        self.debugPanel = DebugPanel(self.notebook, self.view, self.controller)
 
         self.notebook.AddPage(self.eepromPanel, self.eepromPanel.getTitle())
         #self.notebook.AddPage(self.microPanel, self.microPanel.getTitle())
         self.notebook.AddPage(self.hexPanel, self.hexPanel.getTitle())
-        #self.notebook.AddPage(self.debugPanel, self.debugPanel.getTitle())
+        self.notebook.AddPage(self.debugPanel, self.debugPanel.getTitle())
 
         self.sizer.Add(self.notebook, 1, wx.EXPAND)
 
@@ -227,7 +227,7 @@ class EepromPanel(wx.Panel):
         devicePanel = wx.Panel(self.panel)
         deviceSizer = wx.BoxSizer(wx.VERTICAL)
 
-        deviceSizer.Add(wx.StaticText(devicePanel, wx.ID_ANY, "Device"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 2)
+        deviceSizer.Add(wx.StaticText(devicePanel, wx.ID_ANY, "Device"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 4)
 
         self.deviceList = wx.Choice(devicePanel, choices = self.controller.getDevices(), name = 'Device', style = wx.CB_SORT)
         self.deviceList.Bind(wx.EVT_CHOICE, self.onDeviceSelect)
@@ -240,7 +240,7 @@ class EepromPanel(wx.Panel):
         programmerPanel = wx.Panel(self.panel)
         programmerSizer = wx.BoxSizer(wx.VERTICAL)
 
-        programmerSizer.Add(wx.StaticText(programmerPanel, wx.ID_ANY, "Programmer"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 2)
+        programmerSizer.Add(wx.StaticText(programmerPanel, wx.ID_ANY, "Programmer"), 0, wx.EXPAND | wx.BOTTOM | wx.ALIGN_LEFT, 4)
 
         self.programmerList = wx.Choice(programmerPanel, choices = [], name = 'Programmer')
         self.programmerList.Bind(wx.EVT_CHOICE, self.onProgrammerSelect)
@@ -283,7 +283,8 @@ class EepromPanel(wx.Panel):
         wx.CallAfter(self.enableControls)
 
     def onDeviceSelect(self, e):
-        name = self.deviceList.GetStringSelection()
+        index = self.deviceList.GetSelection()
+        name = self.deviceList.GetString(index)
         if not name or len(name) <= 0:
             self.view.LogWarning("Invalid device selected")
 
@@ -298,7 +299,8 @@ class EepromPanel(wx.Panel):
 
         portname = re.search("\[(COM\d+)\]", str).group(1).strip()
         if len(portname) <= 0:
-            self.view.LogWarning("Invalid programmer selected")
+            self.view.LogWarning("Invalid programmer selected.")
+            return
 
         if self.controller.setProgrammer(portname):
             self.view.LogSuccess("Successfully connected with programmer on {}.".format(portname))
@@ -480,7 +482,175 @@ class DebugPanel(wx.Panel):
         self.view = view
         self.controller = controller
 
+        self.gutter = 16
+        self.sizer = wx.BoxSizer(wx.VERTICAL)
+
+        fieldPanel = wx.Panel(self)
+        fieldSizer = wx.WrapSizer()
+
+        # Command List
+        commandPanel = wx.Panel(fieldPanel)
+        commandSizer = wx.BoxSizer(wx.VERTICAL)
+
+        commandSizer.Add(wx.StaticText(commandPanel, wx.ID_ANY, "Command"), 0, wx.BOTTOM | wx.ALIGN_LEFT, 4)
+
+        self.commandList = wx.Choice(commandPanel, choices = self.controller.getCommands(), name = 'Command', style = 0)
+        self.commandList.Bind(wx.EVT_CHOICE, self.onCommandSelect)
+        commandSizer.Add(self.commandList, 0, wx.ALIGN_LEFT, 0)
+
+        commandPanel.SetSizer(commandSizer)
+        fieldSizer.Add(commandPanel, 0, wx.ALL, self.gutter / 2)
+
+        # Start Address Field
+        addressPanel = wx.Panel(fieldPanel)
+        addressSizer = wx.BoxSizer(wx.VERTICAL)
+
+        addressSizer.Add(wx.StaticText(addressPanel, wx.ID_ANY, "Address"), 0, wx.BOTTOM | wx.ALIGN_LEFT, 4)
+
+        self.addressField = wx.TextCtrl(addressPanel, value = "", style = wx.TE_LEFT | wx.TE_DONTWRAP)
+        addressSizer.Add(self.addressField, 0, wx.ALIGN_LEFT, 0)
+
+        addressPanel.SetSizer(addressSizer)
+        fieldSizer.Add(addressPanel, 0, wx.ALL, self.gutter / 2)
+
+        # Data Length Field
+        dataLengthPanel = wx.Panel(fieldPanel)
+        dataLengthSizer = wx.BoxSizer(wx.VERTICAL)
+
+        dataLengthSizer.Add(wx.StaticText(dataLengthPanel, wx.ID_ANY, "Data Length"), 0, wx.BOTTOM | wx.ALIGN_LEFT, 4)
+
+        self.dataLengthField = wx.TextCtrl(dataLengthPanel, value = "", style = wx.TE_LEFT | wx.TE_DONTWRAP)
+        dataLengthSizer.Add(self.dataLengthField, 0, wx.ALIGN_LEFT, 0)
+
+        dataLengthPanel.SetSizer(dataLengthSizer)
+        fieldSizer.Add(dataLengthPanel, 0, wx.ALL, self.gutter / 2)
+
+        # Line Length Field
+        lineLengthPanel = wx.Panel(fieldPanel)
+        lineLengthSizer = wx.BoxSizer(wx.VERTICAL)
+
+        lineLengthSizer.Add(wx.StaticText(lineLengthPanel, wx.ID_ANY, "Line Length"), 0, wx.BOTTOM | wx.ALIGN_LEFT, 4)
+
+        self.lineLengthField = wx.TextCtrl(lineLengthPanel, value = "", style = wx.TE_LEFT | wx.TE_DONTWRAP)
+        lineLengthSizer.Add(self.lineLengthField, 0, wx.ALIGN_LEFT, 0)
+
+        lineLengthPanel.SetSizer(lineLengthSizer)
+        fieldSizer.Add(lineLengthPanel, 0, wx.ALL, self.gutter / 2)
+
+        # Add field panel to control panel
+        fieldPanel.SetSizer(fieldSizer)
+        self.sizer.Add(fieldPanel, 0, wx.EXPAND | wx.ALL, self.gutter / 2)
+
+        # Action Button
+        actionPanel = wx.Panel(self)
+        actionSizer = wx.BoxSizer(wx.HORIZONTAL)
+
+        self.actionButton = wx.Button(actionPanel, wx.ID_ANY, "Send Command")
+        self.actionButton.Bind(wx.EVT_BUTTON, self.onActionClick)
+        actionSizer.Add(self.actionButton, 0, wx.ALIGN_RIGHT | wx.ALIGN_TOP | wx.RIGHT | wx.LEFT, self.gutter / 2)
+
+        actionPanel.SetSizer(actionSizer)
+        self.sizer.Add(actionPanel, 0, wx.EXPAND | wx.LEFT | wx.RIGHT, self.gutter / 2)
+
+        # Result Text Box
+        resultPanel = wx.Panel(self)
+        resultSizer = wx.BoxSizer(wx.VERTICAL)
+
+        resultSizer.Add(wx.StaticText(resultPanel, wx.ID_ANY, "Results"), 0, wx.BOTTOM | wx.ALIGN_LEFT, 4)
+
+        self.resultField = wx.TextCtrl(resultPanel, value = "", style = wx.TE_MULTILINE | wx.TE_RICH | wx.TE_READONLY | wx.TE_LEFT | wx.TE_BESTWRAP)
+        resultSizer.Add(self.resultField, 1, wx.EXPAND)
+
+        resultPanel.SetSizer(resultSizer)
+        self.sizer.Add(resultPanel, 1, wx.EXPAND | wx.ALL, self.gutter)
+
+        self.SetSizer(self.sizer)
+
+        self.onCommandSelect(None)
+
     def getTitle(self):
         return "Debug"
+
+    def getCommandInfo(self):
+        index = self.commandList.GetSelection()
+        str = self.commandList.GetString(index)
+        if len(str) <= 0 or str is None:
+            return False
+
+        command = re.search("\[([a-zA-Z])\]", str).group(1)
+        if len(command) <= 0:
+            return False
+
+        commandInfo = self.controller.getCommand(command)
+        if not commandInfo:
+            return False
+
+        return commandInfo
+
+    def onCommandSelect(self, e):
+        index = self.commandList.GetSelection()
+        str = self.commandList.GetString(index)
+        if len(str) <= 0 or str is None:
+            self.addressField.Disable()
+            self.dataLengthField.Disable()
+            self.lineLengthField.Disable()
+            self.actionButton.Disable()
+            return
+
+        commandInfo = self.getCommandInfo()
+        if not commandInfo:
+            self.addressField.Disable()
+            self.dataLengthField.Disable()
+            self.lineLengthField.Disable()
+            self.actionButton.Disable()
+            self.view.LogWarning("Invalid command selected.")
+            return
+
+        self.actionButton.Enable()
+
+        if commandInfo["address"] == True:
+            self.addressField.Enable()
+        else:
+            self.addressField.Disable()
+
+        if commandInfo["dataLength"] == True:
+            self.dataLengthField.Enable()
+        else:
+            self.dataLengthField.Disable()
+
+        if commandInfo["lineLength"] == True:
+            self.lineLengthField.Enable()
+        else:
+            self.lineLengthField.Disable()
+
+        self.view.Log("Configured debug for command: {}.".format(command))
+
+    def onActionClick(self, event):
+        commandInfo = self.getCommandInfo()
+        if not commandInfo:
+            self.view.LogWarning("No valid command selected.", "Unable to Send Command")
+            return
+
+        # TODO: Parsing field hex strings into uint 8/16 bit values
+
+        address = self.addressField.GetValue()
+        if commandInfo["address"] == False: address = None
+
+        dataLength = self.dataLengthField.GetValue()
+        if commandInfo["dataLength"] == False: dataLength = None
+
+        lineLength = self.lineLengthField.GetValue()
+        if commandInfo["lineLength"] == False: lineLength = None
+
+        self.view.Log("Sending command to programmer.")
+        self.controller.sendCommand(commandInfo["code"], address, dataLength, lineLength)
+        if commandInfo["return"] != False:
+            result = self.controller.readCommand(commandInfo)
+            if result == False: result = ""
+            self.resultField.SetValue(result)
+        else:
+            self.resultField.SetValue("")
+
+    # TODO: Text field value parsing for hexadecimal input.
 
 # NOTE: Maybe create HexGrid class based on HugeTableGrid example.

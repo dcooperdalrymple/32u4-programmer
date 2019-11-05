@@ -20,10 +20,85 @@ class AppController:
             "AT28C256": {
                 "name": "AT28C256",
                 "startAddress": 0x0000,
-                "dataLength": 0x8000
+                "dataLength": 0x8000,
             },
         }
         self.device = False
+
+        self.commands = {
+            "V": {
+                "code": "V",
+                "title": "Version",
+                "description": "",
+                "address": False,
+                "dataLength": False,
+                "lineLength": False,
+                "return": "\n",
+            },
+            "A": {
+                "code": "A",
+                "title": "Set Address",
+                "description": "",
+                "address": True,
+                "dataLength": False,
+                "lineLength": False,
+                "return": False,
+            },
+            "D": {
+                "code": "D",
+                "title": "Set Data",
+                "description": "",
+                "address": True,
+                "dataLength": False,
+                "lineLength": False,
+                "return": False,
+            },
+            "T": {
+                "code": "T",
+                "title": "Play Tone",
+                "description": "Uses the programmer's piezo speaker to play a tone to indicate process completion.",
+                "address": False,
+                "dataLength": False,
+                "lineLength": False,
+                "return": False,
+            },
+            "R": {
+                "code": "R",
+                "title": "Read Hexadecimal",
+                "description": "",
+                "address": True,
+                "dataLength": True,
+                "lineLength": True,
+                "return": "lineLength",
+            },
+            "r": {
+                "code": "r",
+                "title": "Read Binary",
+                "description": "",
+                "address": True,
+                "dataLength": True,
+                "lineLength": False,
+                "return": "\0",
+            },
+            "W": {
+                "code": "W",
+                "title": "Write Hexadecimal",
+                "description": "",
+                "address": True,
+                "dataLength": True,
+                "lineLength": False,
+                "return": "%",
+            },
+            "w": {
+                "code": "w",
+                "title": "Write Binary",
+                "description": "",
+                "address": True,
+                "dataLength": True,
+                "lineLength": False,
+                "return": "%",
+            },
+        }
 
         self.serial = serial.Serial(
             baudrate = 19200,
@@ -56,6 +131,18 @@ class AppController:
             return False
         else:
             return self.devices[name]
+
+    def getCommands(self):
+        choices = []
+        for command in self.commands:
+            choices.append("{} [{}]".format(self.commands[command]["title"], self.commands[command]["code"]))
+        return choices
+
+    def getCommand(self, command):
+        if not command in self.commands:
+            return False
+        else:
+            return self.commands[command]
 
     def setDevice(self, name):
         if not name in self.devices:
@@ -157,6 +244,10 @@ class AppController:
             return False
 
         return True
+
+    def readCommand(self, commandInfo):
+        # TODO: Write read routine based on commandInfo["return"] value
+        return False
 
     def getInfo(self):
         if self.serial.is_open == False:
