@@ -1,4 +1,10 @@
 # 32u4 Programmer
+
+> 32u4-based Eeprom and AVR Programmer<br />
+> Created by D Cooper Dalrymple 2019 - [dcdalrymple.com](https://dcdalrymple.com/)<br />
+> Licensed under GNU GPL V3.0<br />
+> Last revision on November 6th, 2019
+
 Parallel EEPROM and ATtiny13A ISP programmer with native USB support using the Atmega32u4 microcontroller. Intended for making homebrew NES & VCS cartridges with easily rewritable EEPROM for prototyping.
 
 ![Breadboard Prototype](/assets/breadboard-prototype.jpg)
@@ -19,11 +25,11 @@ Intended for use with Atmel ATtiny13A for writing AVRCIC but other devices shoul
 - Atmel ATtiny13A
 - Atmel ATtiny25/45/85
 
-Atmel ATtiny24/44/84 chips are not supported, _yet_.
+## Software Utility
 
-## Programming Utility
+The software for communicating with the 32u4 is written in Python 2.7 with PySerial and wxPython for cross platform support. With the correct packages, it should work on Linux, Windows, and macOS _(currently not tested)_. You can run this program with the IDLE Python GUI or by running the command `python ./32u4-programmer.py` in the root directory of this project.
 
-The software for communicating with the 32u4 is written in Python 2.7 with PySerial and wxPython for cross platform support. With the correct packages, it should work on Linux, Windows, and macOS _(currently not tested)_. There are three main panels within the software, EEPROM, ISP, and Hex.
+There are four main panels within the software, EEPROM, ISP, Hex, and Debug:
 
 ### EEPROM
 
@@ -33,7 +39,7 @@ This page presents all of the options needed to configure the programmer and its
 
 ### ISP
 
-_The ISP functionality is still in development._
+_The ISP software functionality is still in development._
 
 ### Hex Viewer
 
@@ -51,12 +57,29 @@ This page gives you the ability to send commands directly to the programmer, spe
 
 On all utility pages, the log is visible in the bottom of the software. This will display any informational, warning, error, or success messages in color coordinated fashion. This is useful for monitoring the progress of device programming.
 
-## Possible Future Updates
+## Programmer Hardware
 
-- Support for EPROM devices (ie 27Cxxx) with Buck Boost circuit and relays for high-voltage programmer.
-- LEDs and button to display and select EEPROM chip mode.
-- Improved EEPROM power delivery for smaller ICs.
-- SPDT switch to select between 32u4 and external on AVR ISP programmer. Maybe jumper pads as well?
+At the moment, hardware development is still in the prototyping phase. You can built your own breadboard prototype by following the [Fritzing project](/hardware/prototype/32u4-programmer.fzz) wiring diagram with an Adafruit ItsyBitsy 32u4 5V microcontroller and 2 74HC595 ICs, but a more complete, alpha version of the hardware will be developed soon (and possibly distributed) based on the updated [schematic](/hardware/32u4-programmer.pdf). These KiCad project files are located in the `/32u4-programmer/hardware/` directory.
+
+## Feature Requests
+
+The hardware, firmware, and software for this project is still in active development. Follow this project if you would like to receive future updates or contact me at <me@dcdalrymple.com> to learn more about how you can contribute.
+
+### Hardware
+
+- EPROM device support (ie 27Cxxx) with Buck Boost circuit and relays
+- Standalone operation after being configured by the utility software
+- Automatic device hardware configuration for power and address lines
+- ATtiny24/44/84 ISP support
+- Complete ISP firmware
+
+### Software
+
 - Hex file editing and performance improvements
-- Debug page for sending specific commands to programmer.
-- NES/VCS ROM file parsing.
+- NES/VCS ROM file parsing
+- Global environment settings
+- ISP programming
+
+## License
+
+This project is licensed under GNU GPL V3.0 - see the [LICENSE](LICENSE) file for details.
