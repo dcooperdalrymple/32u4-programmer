@@ -537,20 +537,20 @@ class DebugPanel(wx.Panel):
         lineLengthPanel.SetSizer(lineLengthSizer)
         fieldSizer.Add(lineLengthPanel, 0, wx.ALL, self.gutter / 2)
 
-        # Add field panel to control panel
-        fieldPanel.SetSizer(fieldSizer)
-        self.sizer.Add(fieldPanel, 0, wx.EXPAND | wx.ALL, self.gutter / 2)
-
         # Action Button
-        actionPanel = wx.Panel(self)
-        actionSizer = wx.BoxSizer(wx.HORIZONTAL)
+        actionPanel = wx.Panel(fieldPanel)
+        actionSizer = wx.BoxSizer(wx.VERTICAL)
 
         self.actionButton = wx.Button(actionPanel, wx.ID_ANY, "Send Command")
         self.actionButton.Bind(wx.EVT_BUTTON, self.onActionClick)
-        actionSizer.Add(self.actionButton, 0, wx.ALIGN_RIGHT | wx.ALIGN_TOP | wx.RIGHT | wx.LEFT, self.gutter / 2)
+        actionSizer.Add(self.actionButton, 0, wx.ALIGN_RIGHT | wx.ALIGN_TOP | wx.TOP, 19 + 4)
 
         actionPanel.SetSizer(actionSizer)
-        self.sizer.Add(actionPanel, 0, wx.EXPAND | wx.LEFT | wx.RIGHT, self.gutter / 2)
+        fieldSizer.Add(actionPanel, 1, wx.ALL, self.gutter / 2)
+
+        # Add field panel to control panel
+        fieldPanel.SetSizer(fieldSizer)
+        self.sizer.Add(fieldPanel, 0, wx.EXPAND | wx.ALL, self.gutter / 2)
 
         # Result Text Box
         resultPanel = wx.Panel(self)
@@ -562,10 +562,21 @@ class DebugPanel(wx.Panel):
         resultSizer.Add(self.resultField, 1, wx.EXPAND)
 
         resultPanel.SetSizer(resultSizer)
-        self.sizer.Add(resultPanel, 1, wx.EXPAND | wx.ALL, self.gutter)
+        self.sizer.Add(resultPanel, 1, wx.EXPAND | wx.RIGHT | wx.BOTTOM | wx.LEFT, self.gutter)
 
         self.SetSizer(self.sizer)
 
+        # Set up input filtering
+        self.addressField.SetMaxLength(4)
+        self.addressField.Bind(wx.EVT_CHAR, self.filterHex)
+
+        self.dataLengthField.SetMaxLength(4)
+        self.dataLengthField.Bind(wx.EVT_CHAR, self.filterHex)
+
+        self.lineLengthField.SetMaxLength(2)
+        self.lineLengthField.Bind(wx.EVT_CHAR, self.filterHex)
+
+        # Disable controls
         self.onCommandSelect(None)
 
     def getTitle(self):
@@ -623,7 +634,7 @@ class DebugPanel(wx.Panel):
         else:
             self.lineLengthField.Disable()
 
-        self.view.Log("Configured debug for command: {}.".format(command))
+        self.view.Log("Configured debug for command: {}.".format(commandInfo["title"]))
 
     def onActionClick(self, event):
         commandInfo = self.getCommandInfo()
@@ -631,26 +642,91 @@ class DebugPanel(wx.Panel):
             self.view.LogWarning("No valid command selected.", "Unable to Send Command")
             return
 
-        # TODO: Parsing field hex strings into uint 8/16 bit values
-
-        address = self.addressField.GetValue()
+        address = self.getHexValue(self.addressField, 4)
         if commandInfo["address"] == False: address = None
 
-        dataLength = self.dataLengthField.GetValue()
+        dataLength = self.getHexValue(self.dataLengthField, 4)
         if commandInfo["dataLength"] == False: dataLength = None
 
-        lineLength = self.lineLengthField.GetValue()
+        lineLength = self.getHexValue(self.lineLengthField, 2)
         if commandInfo["lineLength"] == False: lineLength = None
 
+        # Request and send data input
+        dataInput = ""
+        if commandInfo["input"] != False and commandInfo["input"] == "dataLength" and dataLength != None:
+            success = False
+            quit = False
+            while success == False and quit == False:
+                # Dialog for input
+                with wx.TextEntryDialog(self.view.frame, "Enter {} bytes of data in hexadecimal format.".format(dataLength), "Command Data Entry", style = wx.OK | wx.CANCEL) as dialog:
+                    dialog.SetMaxLength(dataLength * 2)
+                    dialog.SetValue(dataInput)
+
+                    ret = dialog.ShowModal()
+                    if ret == wx.ID_OK:
+                        dataInput = str(dialog.GetValue())
+                    elif ret == wx.ID_CANCEL:
+                        quit = True
+
+                    dialog.Destroy()
+                if quit == True:
+                    break
+
+                # Validate input
+                if len(dataInput) != dataLength * 2:
+                    self.view.ShowErrorDialog("Not enough data to complete command.")
+                elif re.search("^[a-fA-F0-9]{" + str(dataLength * 2) + "}$", dataInput) is None:
+                    self.view.ShowErrorDialog("Invalid data entry. Must be all hexidecimal characters.")
+                else:
+                    success = True
+
+            if quit == True:
+                return
+
+        if dataInput == False or not isinstance(dataInput, str) or (commandInfo["input"] == "dataLength" and dataLength != None and len(dataInput) != dataLength * 2): dataInput = None
+
+        # Send command to programmer
         self.view.Log("Sending command to programmer.")
-        self.controller.sendCommand(commandInfo["code"], address, dataLength, lineLength)
+        if not self.controller.sendCommand(commandInfo["code"], address, dataLength, lineLength):
+            self.view.LogError("Failed to send debug command.")
+            return
+
+        if dataInput is not None and isinstance(dataInput, str) and len(dataInput) > 0:
+            self.view.Log("Sending data to programmer.")
+            if not self.controller.writeString(dataInput):
+                self.view.LogError("Failed to send debug input data.")
+                return
+
+        # Read programmer results
         if commandInfo["return"] != False:
-            result = self.controller.readCommand(commandInfo)
-            if result == False: result = ""
-            self.resultField.SetValue(result)
+            self.view.Log("Reading command response from programmer.")
+            result = self.controller.readCommand(commandInfo, dataLength, lineLength)
+            if result == False:
+                self.view.LogError("Failed to read debug data from programmer.")
+                self.resultField.SetValue("")
+                return
+            else:
+                self.resultField.SetValue(result)
         else:
             self.resultField.SetValue("")
 
-    # TODO: Text field value parsing for hexadecimal input.
+        self.view.LogSuccess("Programmer debug request successfully completed.")
+
+    def filterHex(self, event):
+        keycode = event.GetKeyCode()
+        if keycode > 255 or keycode in [8, 9, 127] or re.match("[a-fA-F0-9]", chr(keycode)) is not None:
+            event.Skip()
+
+    def getHexValue(self, ctrl, length):
+        # Check if valid entry
+        val = str(ctrl.GetValue())
+        if not isinstance(val, str) or len(val) > length or len(val) <= 0:
+            return None
+
+        # Format hex string
+        val = "0x" + val.zfill(length)
+
+        # Convert to integer
+        return int(val, base = 16)
 
 # NOTE: Maybe create HexGrid class based on HugeTableGrid example.

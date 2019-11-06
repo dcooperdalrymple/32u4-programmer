@@ -3,6 +3,7 @@
 import serial
 import serial.tools.list_ports
 import time
+import math
 
 class AppController:
     def __init__(self, view):
@@ -33,6 +34,7 @@ class AppController:
                 "address": False,
                 "dataLength": False,
                 "lineLength": False,
+                "input": False,
                 "return": "\n",
             },
             "A": {
@@ -42,6 +44,7 @@ class AppController:
                 "address": True,
                 "dataLength": False,
                 "lineLength": False,
+                "input": False,
                 "return": False,
             },
             "D": {
@@ -51,6 +54,7 @@ class AppController:
                 "address": True,
                 "dataLength": False,
                 "lineLength": False,
+                "input": False,
                 "return": False,
             },
             "T": {
@@ -60,6 +64,7 @@ class AppController:
                 "address": False,
                 "dataLength": False,
                 "lineLength": False,
+                "input": False,
                 "return": False,
             },
             "R": {
@@ -69,17 +74,19 @@ class AppController:
                 "address": True,
                 "dataLength": True,
                 "lineLength": True,
+                "input": False,
                 "return": "lineLength",
             },
-            "r": {
-                "code": "r",
-                "title": "Read Binary",
-                "description": "",
-                "address": True,
-                "dataLength": True,
-                "lineLength": False,
-                "return": "\0",
-            },
+#            "r": {
+#                "code": "r",
+#                "title": "Read Binary",
+#                "description": "",
+#                "address": True,
+#                "dataLength": True,
+#                "lineLength": False,
+#                "input": False,
+#                "return": "\0",
+#            },
             "W": {
                 "code": "W",
                 "title": "Write Hexadecimal",
@@ -87,17 +94,19 @@ class AppController:
                 "address": True,
                 "dataLength": True,
                 "lineLength": False,
+                "input": "dataLength",
                 "return": "%",
             },
-            "w": {
-                "code": "w",
-                "title": "Write Binary",
-                "description": "",
-                "address": True,
-                "dataLength": True,
-                "lineLength": False,
-                "return": "%",
-            },
+#            "w": {
+#                "code": "w",
+#                "title": "Write Binary",
+#                "description": "",
+#                "address": True,
+#                "dataLength": True,
+#                "lineLength": False,
+#                "input": "dataLength",
+#                "return": "%",
+#            },
         }
 
         self.serial = serial.Serial(
@@ -235,9 +244,15 @@ class AppController:
                     command += ',' + "{0:0{1}x}".format(lineLength, 2)
         command += '\n'
 
+        try:
+            command = command.encode('utf-8')
+        except UnicodeEncodeError:
+            self.view.LogError("Failed to encode data as UTF-8.", "Serial Command Error")
+            return False
+
         self.view.Log("Sending Command: {}".format(command[:-1]))
         try:
-            self.serial.write(command.encode('utf-8'))
+            self.serial.write(command)
             self.serial.flush()
         except serial.SerialException as e:
             self.view.LogError(str(e), "Serial Command Error")
@@ -245,8 +260,57 @@ class AppController:
 
         return True
 
-    def readCommand(self, commandInfo):
-        # TODO: Write read routine based on commandInfo["return"] value
+    def readCommand(self, commandInfo, dataLength = None, lineLength = None):
+        if commandInfo["return"] == False:
+            return False
+
+        if isinstance(commandInfo["return"], str):
+            read = False
+
+            if len(commandInfo["return"]) == 1:
+                self.serial.timeout = self.block_timeout
+                try:
+                    read = str(self.serial.read_until(commandInfo["return"]))
+                except serial.SerialException as e:
+                    self.view.LogError(str(e), "Command Read Error")
+                    self.serial.timeout = self.default_timeout
+                    return False
+
+            elif commandInfo["return"] == "lineLength":
+                if dataLength is None or not isinstance(dataLength, int) or dataLength <= 0 or lineLength is None or not isinstance(lineLength, int) or lineLength <= 0:
+                    return False
+
+                lines = int(math.ceil(float(dataLength) / float(lineLength)))
+
+                read = ""
+                self.serial.timeout = self.block_timeout
+                try:
+                    for line in range(lines):
+                        read += str(self.serial.read_until('\n')) + '\n'
+                except serial.SerialException as e:
+                    self.view.LogError(str(e), "Command Read Error")
+                    self.serial.timeout = self.default_timeout
+                    return False
+
+            elif commandInfo["return"] == "dataLength":
+                if dataLength is None or not isinstance(dataLength, int) or dataLength <= 0:
+                    return False
+
+                self.serial.timeout = self.block_timeout
+                try:
+                    read = str(self.serial.read(dataLength))
+                    terminator = self.serial.read(1)
+                except serial.SerialException as e:
+                    self.view.LogError(str(e), "Command Read Error")
+                    self.serial.timeout = self.default_timeout
+                    return False
+
+            self.serial.timeout = self.default_timeout
+            if read == False or len(read) <= 0:
+                return False
+            else:
+                return read
+
         return False
 
     def getInfo(self):
@@ -408,6 +472,8 @@ class AppController:
         if not self.sendCommand(u'w', startAddress, len(data)):
             return False
 
+        self.view.Log("Writing {} bytes to programmer starting at {}.".format(len(data), "0x{0:0{1}x}".format(startAddress, 4)))
+
         self.serial.timeout = self.block_timeout
         try:
             # Write Data
@@ -423,6 +489,28 @@ class AppController:
             self.view.LogError(str(e), "Block Write Error")
             return False
         self.serial.timeout = self.default_timeout
+
+        return True
+
+    def writeString(self, data):
+        if self.serial.is_open == False:
+            return False
+
+        self.view.Log("Writing {} bytes to programmer.".format(len(data)))
+
+        try:
+            data = data.encode('utf-8')
+        except UnicodeEncodeError:
+            self.view.LogError("Failed to encode data as UTF-8.", "Serial Write Error")
+            return False
+
+        try:
+            # Write Data
+            self.serial.write(data)
+            self.serial.flush()
+        except serial.SerialException as e:
+            self.view.LogError(str(e), "Serial Write Error")
+            return False
 
         return True
 
