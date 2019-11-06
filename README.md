@@ -41,9 +41,15 @@ Whenever a hex file is imported manually, read from an EEPROM device, or written
 
 ![Utility Hex Viewer Page](/assets/utility-hex.png)
 
-### Debug Log
+### Command Debugger
 
-On all utility pages, the debug log is visible in the bottom of the software. This will display any informational, warning, error, or success messages in color coordinated fashion. This is useful for monitoring the progress of device programming.
+This page gives you the ability to send commands directly to the programmer, specify each parameter with hexadecimal notation, and display the response from the programmer if applicable. This page is mostly useful for testing address and data lines on the programmer or reading and writing small sets of data to verify an eeprom device's functionality.
+
+![Utility Debug Page](/assets/utility-debug.png)
+
+### Program Log
+
+On all utility pages, the log is visible in the bottom of the software. This will display any informational, warning, error, or success messages in color coordinated fashion. This is useful for monitoring the progress of device programming.
 
 ## Possible Future Updates
 
