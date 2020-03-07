@@ -16,6 +16,7 @@ Parallel EEPROM and ATtiny13A ISP programmer with native USB support using the A
 Intended for use with Atmel AT28Cxxx ICs, but other pin-compatible chips might work as well.
 
 - Atmel AT28C16 _16Kb (2K x 8)_
+- Atmel AT28C64 _64Kb (8K x 8)_
 - Atmel AT28C256 _256Kb (32K x 8)_
 
 ### ISP

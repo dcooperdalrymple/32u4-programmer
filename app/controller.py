@@ -19,6 +19,11 @@ class AppController:
                 "startAddress": 0x0000,
                 "dataLength": 0x0800,
             },
+            "AT28C64": {
+                "name": "AT28C64",
+                "startAddress": 0x0000,
+                "dataLength": 0x2000,
+            },
             "AT28C256": {
                 "name": "AT28C256",
                 "startAddress": 0x0000,
