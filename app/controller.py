@@ -4,6 +4,7 @@ import serial
 import serial.tools.list_ports
 import time
 import math
+import os
 
 class AppController:
     def __init__(self, view):

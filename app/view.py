@@ -297,7 +297,11 @@ class EepromPanel(wx.Panel):
         if len(str) <= 0:
             return
 
-        portname = re.search("\[(COM\d+)\]", str).group(1).strip()
+        if os.name == 'nt':
+            portname = re.search("\[(COM\d+)\]", str).group(1).strip()
+        else:
+            portname = re.search("\[([^\]0-9]+\d+)\]", str).group(1).strip()
+
         if len(portname) <= 0:
             self.view.LogWarning("Invalid programmer selected.")
             return
